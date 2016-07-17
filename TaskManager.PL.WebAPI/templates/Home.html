@@ -1,0 +1,27 @@
+﻿<div class="home-page">
+    <div class="jumbotron">
+        <h1>Лидер</h1>
+        <p>
+            Вас приветствует менеджер задач и проектов ЛИДЕР.<br />
+            Создавайте проекты, распределяйте задачи, отслеживайте активность проектной команды. <br />
+            Лидер - будь впереди!
+        </p>
+    </div>
+    <p>
+        <button class="btn btn-info" 
+                ui-sref="loginpage">Login</button>
+    </p>
+    <p>
+        <button class="btn btn-info" 
+                ng-click="home.check()">IsOk</button>
+    </p>
+    <p>
+        <button type="submit" 
+                class="btn btn-default" 
+                ui-sref="registrationpage">Зарегистрироваться</button>
+    </p>
+    <!--Вот так подключаются подвьюшки-->
+    <div ng-include 
+         src="'LoginPage.html'" 
+         ng-controller="LoginCtrl as loginpage"></div>
+</div>

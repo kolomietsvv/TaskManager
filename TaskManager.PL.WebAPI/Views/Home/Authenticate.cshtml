@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Authenticate";
+}
+
+<div class="container label-info">
+    Вас приветствует менеджер здач и проектов ЛИДЕР.<br />
+    Создавайте проекты, распределяйте задачи, отслеживайте активность проектной команды. <br />
+    Лидер - будь впереди!
+</div>
+@if (TempData.ContainsKey("Error"))
+{ 
+    <div class="alert alert-danger">Nope</div>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div>
+        логин <br />
+        <input type="text" name="login" />
+    </div>
+    <div>
+        пароль <br />
+        <input type="password" name="password" />
+    </div>
+
+    <div>
+        <input type="submit" name="autorize" />
+        <button class="btn btn-info">Войти</button>
+    </div>
+}

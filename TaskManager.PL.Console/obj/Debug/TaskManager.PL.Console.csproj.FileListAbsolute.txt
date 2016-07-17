@@ -1,0 +1,16 @@
+D:\TaskManager\TaskManager.PL.Console\bin\Debug\TaskManager.PL.Console.exe.config
+D:\TaskManager\TaskManager.PL.Console\bin\Debug\TaskManager.PL.Console.exe
+D:\TaskManager\TaskManager.PL.Console\bin\Debug\TaskManager.PL.Console.pdb
+D:\TaskManager\TaskManager.PL.Console\bin\Debug\TaskManager.BLL.Core.dll
+D:\TaskManager\TaskManager.PL.Console\bin\Debug\TaskManager.BLL.Interface.dll
+D:\TaskManager\TaskManager.PL.Console\bin\Debug\TaskManager.Common.Entities.dll
+D:\TaskManager\TaskManager.PL.Console\bin\Debug\TaskManager.DAL.Interface.dll
+D:\TaskManager\TaskManager.PL.Console\bin\Debug\TaskManager.DAL.MSSQL.dll
+D:\TaskManager\TaskManager.PL.Console\bin\Debug\TaskManager.BLL.Core.pdb
+D:\TaskManager\TaskManager.PL.Console\bin\Debug\TaskManager.BLL.Interface.pdb
+D:\TaskManager\TaskManager.PL.Console\bin\Debug\TaskManager.Common.Entities.pdb
+D:\TaskManager\TaskManager.PL.Console\bin\Debug\TaskManager.DAL.Interface.pdb
+D:\TaskManager\TaskManager.PL.Console\bin\Debug\TaskManager.DAL.MSSQL.pdb
+D:\TaskManager\TaskManager.PL.Console\obj\Debug\TaskManager.PL.Console.csprojResolveAssemblyReference.cache
+D:\TaskManager\TaskManager.PL.Console\obj\Debug\TaskManager.PL.Console.exe
+D:\TaskManager\TaskManager.PL.Console\obj\Debug\TaskManager.PL.Console.pdb

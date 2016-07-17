@@ -1,0 +1,39 @@
+﻿<form novalidate name="registrationForm" ng-submit="registrationForm.$valid && registrationpage.createNewAccount()">
+    <div class="form-group">
+        <label for="login">Логин</label>
+        <input placeholder="Логин"
+               id="login"
+               ng-model="registrationpage.login"
+               type="text"
+               name="login"
+               ng-required="true" />
+    </div>
+    <div class="form-group">
+        <label for="password">Пароль</label>
+        <input placeholder="Пароль"
+               id="password"
+               ng-model="registrationpage.password"
+               type="password"
+               name="password"
+               ng-required="true" />
+    </div>
+    <div class="form-group">
+        <label for="password">Повторите пароль</label>
+        <input placeholder="Повторите пароль"
+               id="password"
+               ng-model="registrationpage.confirmPassword"
+               type="password"
+               name="password"
+               ng-required="true" />
+    </div>
+    <div class="form-group">
+        <label for="password">Электронная почта</label>
+        <input placeholder="Электронная почта"
+               id="email"
+               ng-model="registrationpage.email"
+               type="email"
+               name="email"
+               ng-required="true" />
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>

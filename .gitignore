@@ -1,0 +1,8 @@
+.gitignore 
+packages
+node_modules
+bower_components
+/TaskManager.PL.WebAPI/packages
+/*.suo
+/TaskManager.PL.WebAPI/node_modules
+/TaskManager.PL.WebAPI/bower_components

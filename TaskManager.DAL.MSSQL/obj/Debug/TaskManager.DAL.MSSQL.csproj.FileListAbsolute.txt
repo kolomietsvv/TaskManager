@@ -1,0 +1,10 @@
+D:\TaskManager\TAskManager.DAL.MSSQL\bin\Debug\TaskManager.DAL.MSSQL.dll.config
+D:\TaskManager\TAskManager.DAL.MSSQL\bin\Debug\TaskManager.DAL.MSSQL.dll
+D:\TaskManager\TAskManager.DAL.MSSQL\bin\Debug\TaskManager.DAL.MSSQL.pdb
+D:\TaskManager\TAskManager.DAL.MSSQL\bin\Debug\TaskManager.Common.Entities.dll
+D:\TaskManager\TAskManager.DAL.MSSQL\bin\Debug\TaskManager.DAL.Interface.dll
+D:\TaskManager\TAskManager.DAL.MSSQL\bin\Debug\TaskManager.Common.Entities.pdb
+D:\TaskManager\TAskManager.DAL.MSSQL\bin\Debug\TaskManager.DAL.Interface.pdb
+D:\TaskManager\TAskManager.DAL.MSSQL\obj\Debug\TaskManager.DAL.MSSQL.csprojResolveAssemblyReference.cache
+D:\TaskManager\TAskManager.DAL.MSSQL\obj\Debug\TaskManager.DAL.MSSQL.dll
+D:\TaskManager\TAskManager.DAL.MSSQL\obj\Debug\TaskManager.DAL.MSSQL.pdb

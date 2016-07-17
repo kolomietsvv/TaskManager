@@ -1,0 +1,8 @@
+D:\TaskManager\TaskManager.DAL.Interface\bin\Debug\TaskManager.DAL.Interface.dll.config
+D:\TaskManager\TaskManager.DAL.Interface\bin\Debug\TaskManager.DAL.Interface.dll
+D:\TaskManager\TaskManager.DAL.Interface\bin\Debug\TaskManager.DAL.Interface.pdb
+D:\TaskManager\TaskManager.DAL.Interface\bin\Debug\TaskManager.Common.Entities.dll
+D:\TaskManager\TaskManager.DAL.Interface\bin\Debug\TaskManager.Common.Entities.pdb
+D:\TaskManager\TaskManager.DAL.Interface\obj\Debug\TaskManager.DAL.Interface.csprojResolveAssemblyReference.cache
+D:\TaskManager\TaskManager.DAL.Interface\obj\Debug\TaskManager.DAL.Interface.dll
+D:\TaskManager\TaskManager.DAL.Interface\obj\Debug\TaskManager.DAL.Interface.pdb

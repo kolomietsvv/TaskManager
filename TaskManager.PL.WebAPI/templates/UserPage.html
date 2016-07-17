@@ -1,0 +1,7 @@
+﻿<div class="user-page">
+    <button class="btn btn-default" ng-click="userpage.nextPage()">Go</button>
+    <button class="btn btn-default" ng-click="userpage.logoutGo()">Logout</button>
+    <div ng-repeat="project in home.projects track by $index">
+        {{project}}
+    </div>
+</div>

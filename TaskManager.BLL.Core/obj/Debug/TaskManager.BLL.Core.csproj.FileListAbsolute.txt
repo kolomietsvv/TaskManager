@@ -1,0 +1,14 @@
+D:\TaskManager\TaskManager.BLL.Core\bin\Debug\TaskManager.BLL.Core.dll.config
+D:\TaskManager\TaskManager.BLL.Core\bin\Debug\TaskManager.BLL.Core.dll
+D:\TaskManager\TaskManager.BLL.Core\bin\Debug\TaskManager.BLL.Core.pdb
+D:\TaskManager\TaskManager.BLL.Core\bin\Debug\TaskManager.BLL.Interface.dll
+D:\TaskManager\TaskManager.BLL.Core\bin\Debug\TaskManager.Common.Entities.dll
+D:\TaskManager\TaskManager.BLL.Core\bin\Debug\TaskManager.DAL.Interface.dll
+D:\TaskManager\TaskManager.BLL.Core\bin\Debug\TaskManager.DAL.MSSQL.dll
+D:\TaskManager\TaskManager.BLL.Core\bin\Debug\TaskManager.BLL.Interface.pdb
+D:\TaskManager\TaskManager.BLL.Core\bin\Debug\TaskManager.Common.Entities.pdb
+D:\TaskManager\TaskManager.BLL.Core\bin\Debug\TaskManager.DAL.Interface.pdb
+D:\TaskManager\TaskManager.BLL.Core\bin\Debug\TaskManager.DAL.MSSQL.pdb
+D:\TaskManager\TaskManager.BLL.Core\obj\Debug\TaskManager.BLL.Core.csprojResolveAssemblyReference.cache
+D:\TaskManager\TaskManager.BLL.Core\obj\Debug\TaskManager.BLL.Core.dll
+D:\TaskManager\TaskManager.BLL.Core\obj\Debug\TaskManager.BLL.Core.pdb
