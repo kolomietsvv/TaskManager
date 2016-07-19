@@ -59,33 +59,38 @@ namespace TaskManager.DAL.MSSQL
                 var reader = command.ExecuteReader();
                 var user = new User();
                 while (reader.Read())
-                {// корявый код
-                    try
-                    {
-                        user = new User(
-                            (Guid)reader["userId"], (string)reader["loginName"], (string)reader["passwordHash"],
-                            (string)reader["email"], (string)reader["firstName"], (string)reader["lastName"],// корявый код
-                            (DateTime)reader["DateOfBirth"], (string)reader["companyName"], (string)reader["qualification"],
-                            (string)reader["extraInf"]);
-                    }
-                    catch (Exception)
-                    {
-                        user = new User(// корявый код
-                            (Guid)reader["userId"], (string)reader["loginName"], (string)reader["passwordHash"],
-                            (string)reader["email"]);
-                    }
+                {
+                    user.LoginName = (string)reader["loginName"];
+                    user.PasswordHash = (string)reader["passwordHash"];
+                    user.Email = (string)reader["email"];
+                    user.UserId = (Guid)reader["userId"];
+
+                    try { user.FirstName = (string)reader["firstName"]; }
+                    catch(Exception){new Exception("firstName haven't been added");}
+                    try { user.LastName = (string)reader["lastName"]; }
+                    catch(Exception){new Exception("lastName haven't been added");}
+                    try { user.DateOfBirth = (DateTime)reader["dateOfBirth"]; }
+                    catch(Exception){new Exception("dateOfBirth haven't been added");}
+                    try { user.CompanyName = (string)reader["companyName"]; }
+                    catch(Exception){new Exception("companyName haven't been added");}
+                    try { user.Qualification = (string)reader["qualification"]; }
+                    catch(Exception){new Exception("qualification haven't been added");}
+                    try { user.ExtraInf=(string)reader["extraInf"];}
+                    catch(Exception){new Exception("extraInf haven't been added");}
+
                     connection.Close();
-                    var newCommand = new SqlCommand("getAllUserRoles", connection);// корявый код
-                    newCommand.CommandType = CommandType.StoredProcedure;
-                    newCommand.Parameters.Add("@userLogin", System.Data.SqlDbType.VarChar).Value = login;
+                    command = new SqlCommand("getAllUserRoles", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("@loginName", System.Data.SqlDbType.VarChar).Value = login;
                     connection.Open();
-                    var newReader = newCommand.ExecuteReader();
+                    reader = command.ExecuteReader();
                     user.Roles = new List<string>();
-                    while (newReader.Read())
+                    while (reader.Read())
                     {
-                        user.Roles.Add((string)newReader["roleName"]);
+                        user.Roles.Add((string)reader["roleName"]);
                     }
-                    return user;         
+
+                    return user; 
                 }
                 return null;
             }

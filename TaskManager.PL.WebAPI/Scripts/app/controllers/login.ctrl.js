@@ -10,7 +10,7 @@ App.controller('LoginCtrl',
             .then(function (res) {
                 $state.go("userpage");/*Если всё хорошо(httpStatusCode=200), перейти(go) .state по имени userpage*/
             }, function (res) {
-                alert("Неверный логин или пароль");/*httpStatusCode 400 или 500*/
+                alert("Такой пользователь не зарегистрирован (убедитесь что вы пдтвердили авторизацию по почте и данные введены корректно)");/*httpStatusCode 400 или 500*/
             });//eslint
        };
     }]);

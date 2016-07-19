@@ -13,6 +13,6 @@ namespace TaskManager.DAL.Interface
          void AddUser(User user);
          User GetUser(string login);
         bool CanLogin(string login, string password);
-        bool AddRole(string loginName, string roleName);
+        bool AddRole(string userId, string roleName);
     }
 }

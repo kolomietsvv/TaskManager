@@ -57,7 +57,6 @@ namespace TaskManager.PL.WebAPI.Controllers
                     m.IsBodyHtml = true;
                     System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.gmail.com");
                     smtp.Credentials = new System.Net.NetworkCredential("kolomiets.victoriya@gmail.com", "79198308196");
-                    //smtp.ServerCertificateValidationCallback = () => true; //Solution for client certificate error
                     smtp.EnableSsl = true;
                     smtp.Send(m);
                     return new HttpStatusCodeResult(200, "User've been created");

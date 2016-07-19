@@ -29,9 +29,9 @@ namespace TaskManager.BLL.Core
         {
             return userDAO.CanLogin(loginName, passwordHash);
         }
-        public void AddRole(string loginName, string roleName)
+        public void AddRole(string userId, string roleName)
         {
-            userDAO.AddRole(loginName, roleName);
+            userDAO.AddRole(userId, roleName);
         }
     }
 }
