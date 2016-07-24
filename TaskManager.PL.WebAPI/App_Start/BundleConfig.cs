@@ -10,7 +10,8 @@ namespace TaskManager.PL.WebAPI
         {
             bundles.Add(new ScriptBundle("~/bundles/libraries").Include(
                         "~/bower_components/angular/angular.js",
-                        "~/bower_components/angular-ui-router/release/angular-ui-router.js"));
+                        "~/bower_components/angular-ui-router/release/angular-ui-router.js",
+                        "~/bower_components/lodash/dist/lodash.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/mainScripts").Include(
                         "~/Scripts/templates.js",/*Порядок важен*/

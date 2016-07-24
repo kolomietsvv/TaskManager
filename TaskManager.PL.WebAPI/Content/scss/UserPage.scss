@@ -1,0 +1,30 @@
+﻿.user-page {
+    .projects-container {
+        padding: 30px;
+    }
+
+    .project-item {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        border-radius: 6px;
+        overflow: hidden;
+        display: inline-block;
+        margin: 30px;
+        transition: box-shadow 0.2s linear;
+        box-shadow: 0 0 0 rgba(0,0,0,0);
+        padding: 20px;
+
+        &:hover{
+            box-shadow: 0px 12px 45px rgba(0,0,0,0.7);
+        }
+
+        .project-title {
+            font-size: 24px;
+        }
+
+        .project-summary{
+            font-size: 14px;
+        }
+    }
+}

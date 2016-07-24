@@ -8,8 +8,9 @@
   "license": "MIT",
   "homepage": "",
   "dependencies": {
-    "angular-ui-router": "^0.3.1",
-    "angular": "^1.5.7",
-    "bootstrap-sass": "^3.3.6"
+    "angular-ui-router": "~0.3.1",
+    "angular": "~1.5.7",
+    "bootstrap-sass": "~3.3.6",
+    "lodash": "~4.14.0"
   }
 }

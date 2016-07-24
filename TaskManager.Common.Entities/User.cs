@@ -68,7 +68,7 @@ namespace TaskManager.Common.Entities
         public DateTime DateOfBirth { get; set; }
         public string CompanyName { get; set; }
         public string Qualification { get; set; }
-        public IEnumerable<Guid> ProjectIds { get; set; }
+        public List<Project> Projects { get; set; }
         public string ExtraInf { get; set; }
     }
 }

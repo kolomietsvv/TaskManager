@@ -10,32 +10,67 @@ App.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             templateUrl: 'Home.html',
             controller: 'HomeCtrl',
             controllerAs: 'home',
+            data: {
+                access: {
+                    roles: []
+                }
+            }
         })
         .state('userpage', {
             url: '/userpage',
             templateUrl: 'UserPage.html',
             controller: 'UserCtrl',
-            controllerAs: 'userpage'
+            controllerAs: 'userpage',
+            resolve: {//использовать во всех стейтах, внутри которых нам нужны данные из userData
+                userIsLoaded: ['userLoaded', function (userLoaded) {
+                    return userLoaded.deferred().promise;
+                }]
+            },
+            data: {
+                access: {
+                    roles: ['User', 'Manager', 'Admin']
+                }
+            }
         })
        .state('loginpage', {/*это важно*/
            url: '/loginpage',
            templateUrl: 'LoginPage.html',/*Имя вьюшки*/
            controller: 'LoginCtrl',/*Это имя ангуляр контроллера (*.ctrl.js)*/
-           controllerAs: 'loginpage'/*на вьюшке спрашиваем это (это же this  в контроллере js)*/
+           controllerAs: 'loginpage'/*на вьюшке спрашиваем это (это же this  в контроллере js)*/,
+           data: {
+               access: {
+                   roles: []
+               }
+           }
        })
         .state('registrationpage', {
             url: '/registrationpage',
             templateUrl: 'RegistrationPage.html',
             controller: 'RegistrationCtrl',
-            controllerAs: 'registrationpage'
+            controllerAs: 'registrationpage',
+            data: {
+                access: {
+                    roles: []
+                }
+            }
         })
     .state('page1', {
         url: '/page1',
-        templateUrl: 'Page1.html'
+        templateUrl: 'Page1.html',
+        data: {
+            access: {
+                roles: ['User', 'Manager', 'Admin']
+            }
+        }
     })
     .state('page2', {
         url: '/page2',
-        templateUrl: 'Page2.html'
+        templateUrl: 'Page2.html',
+        data: {
+            access: {
+                roles: ['User', 'Manager', 'Admin']
+            }
+        }
     });
 
 

@@ -11,8 +11,10 @@ namespace TaskManager.BLL.Interface
     {
        IEnumerable<User> GetAll();
        void AddUser(User user);
-       User GetUser(string loogin);
-       bool CanLogin(string login, string password);
+       User GetUser(string userLogin);
+       bool CanLogin(string userLogin, string password);
        void AddRole(string userId, string roleName);
+       void AddProject(string userLogin, string projectName);
+       List<Project> GetAllProjects(string userLogin);
     }
 }

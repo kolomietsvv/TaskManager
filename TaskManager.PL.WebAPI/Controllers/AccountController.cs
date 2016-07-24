@@ -12,26 +12,28 @@ namespace TaskManager.PL.WebAPI.Controllers
     public class AccountController : Controller
     {
         [HttpPost]
-        public ActionResult Login(LoginModel loginModel)/*можно передать модель с атрибутами [required]*/
+        public ActionResult Login(LoginModel loginModel)
         {
             if (ModelState.IsValid)
             {
                 if (AccountModel.CanLogin(loginModel.Login, loginModel.Password))
                 {
-                    FormsAuthentication.SetAuthCookie(loginModel.Login, createPersistentCookie: true);
-                    return Json(loginModel);
+                    var login = loginModel.Login;
+                    FormsAuthentication.SetAuthCookie(login, createPersistentCookie: true);
+
+                    return Json(new { Login = login, Roles = AccountModel.Get(login).Roles });
                 }
-                return new HttpStatusCodeResult(401, "Wrong login or password");
+                return new HttpStatusCodeResult(401, "No such user");
             }
             return new HttpStatusCodeResult(403, "Invalid Form");
         }
 
         [HttpPost]
         [Authorize]
-        public ActionResult IsAuthorized()
+        public ActionResult IsAuthorized()// user не использовать user from ent, but from models
         {
             var user = AccountModel.Get(User.Identity.Name);
-            return Json(new AccountModel() { LoginName = user.LoginName, Roles = user.Roles });
+            return Json(new { Login = user.LoginName, Roles = user.Roles});
         }
 
         [HttpPost]
@@ -41,6 +43,7 @@ namespace TaskManager.PL.WebAPI.Controllers
             FormsAuthentication.SignOut();
             return new HttpStatusCodeResult(200, "U've been loged out");
         }
+
         [HttpPost]
         public ActionResult CreateNewAccount(RegistrationModel model)
         {
@@ -67,17 +70,22 @@ namespace TaskManager.PL.WebAPI.Controllers
         }
 
         [HttpGet]
-        //[AllowJsonGet]
         public ActionResult ConfirmRegistration(string token, string login)
         {
             if (AccountModel.CheckToken(token, login))
             {
                 FormsAuthentication.SetAuthCookie(login, createPersistentCookie: true);
                 AccountModel.AddRole(token, "User");
-                return RedirectToAction("Index","Home");
+                return RedirectToAction("Index", "Home");
             }
             return new HttpStatusCodeResult(403);
         }
         //todo здесь должен быть метод, возвращающий логин и роли, если пользоатель залогинен
+
+        //public void GetRoles()
+        //{
+        //    var roleProvider = new MyRoleProvider();
+        //    roleProvider.GetRolesForUser(User.Identity.Name);
+        //}
     }
 }

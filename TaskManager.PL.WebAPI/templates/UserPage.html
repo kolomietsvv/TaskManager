@@ -1,7 +1,27 @@
 ﻿<div class="user-page">
     <button class="btn btn-default" ng-click="userpage.nextPage()">Go</button>
-    <button class="btn btn-default" ng-click="userpage.logoutGo()">Logout</button>
-    <div ng-repeat="project in home.projects track by $index">
-        {{project}}
+    <button class="btn btn-default" ng-click="userpage.logoutGo()">Выйти</button>
+    <form novalidate name="projectForm" ng-submit="userpage.$valid && userpage.addProject()">
+        <input placeholder="projectName"
+               id="projectName"
+               ng-model="userpage.projectName"
+               type="text"
+               name="projectName"
+               ng-required="true" />
+        <button class="btn btn-default" ng-click="userpage.addProject()">Добавить проект</button>
+    </form>
+
+    <div class="projects-container">
+        <div class="project-item"
+             ng-repeat="project in userpage.projects track by $index">
+            <div class="project-title">
+                {{::project.ProjectName}}<!-- ::  <=== it is one time data binding in angularjs-->
+            </div>
+            <div class="project-summary">
+                {{::project.Summary}}
+            </div>
+        </div>
     </div>
+
+    
 </div>

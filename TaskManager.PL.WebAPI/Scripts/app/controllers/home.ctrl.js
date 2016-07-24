@@ -4,7 +4,6 @@ App.controller('HomeCtrl',
         var vm = this;
         vm.login = '';
         vm.password = '';
-        vm.projects = ["pr1", "pr2", "pr3"];
         vm.loginGo = function () {
             $http.post('Home/Authenticate/', {login:vm.login, password:vm.password})
             .then(function (res) {

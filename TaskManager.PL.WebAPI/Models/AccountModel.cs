@@ -32,6 +32,7 @@ namespace TaskManager.PL.WebAPI.Models
         public string LoginName { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
+        public List<Project> Projects { get; set; }
         public List<string> Roles { get; set; }
 
         public static User Get(string login)

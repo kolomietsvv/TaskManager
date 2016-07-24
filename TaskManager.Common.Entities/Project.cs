@@ -6,11 +6,27 @@ using System.Threading.Tasks;
 
 namespace TaskManager.Common.Entities
 {
-    class Project
+    public class Project
     {
-       private Guid projectId;
-       private string name;
-       private Guid managerId;
-       private string summary;
+        public Project()
+        {
+
+        }
+        public Project(Guid id, string name, string summary)
+        {
+            ProjectId=id;
+            Name = name;
+            Summary = summary;
+        }
+
+        public Project(Guid id, string name)
+        {
+            ProjectId = id;
+            Name = name;
+        }
+
+       public Guid ProjectId{get;set;}
+       public string Name { get; set; }
+       public string Summary { get; set; }
     }
 }

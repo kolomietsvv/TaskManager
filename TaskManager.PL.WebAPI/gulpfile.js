@@ -7,7 +7,7 @@ gulp.paths = {
         dest: './Scripts/'
     },
     styles: {
-        src: ['./Content/scss/*.scss', './bower_components/bootstrap-sass/assets/stylesheets/**/*.scss'],
+        src: ['./Content/scss/**/*.scss', './bower_components/bootstrap-sass/assets/stylesheets/**/*.scss'],
         dest: './Styles/css/'
     }
 };
