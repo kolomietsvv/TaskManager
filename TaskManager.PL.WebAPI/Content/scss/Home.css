@@ -1,0 +1,66 @@
+﻿.home-page {
+  padding-bottom: 9.75em;
+  position: relative;
+  max-width: 1440px;
+  height: 100%;
+  margin: 0 auto;
+  font: 14px/1 Helvetica,Arial,sans-serif;
+  color: #b5899b;
+  background-image: url("../../Images/background.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.home-page .top-container .left-side {
+  color: #ffffff;
+  vertical-align: top;
+  background-color: #95a5a6;
+  border-radius: 4px;
+  padding: 20px 10px;
+  overflow: hidden;
+  display: inline-block;
+  width: 250px;
+  transition: 0.2s all ease-in;
+  box-shadow: 0px 2px 6px #000000;
+}
+
+.home-page .top-container .left-side:hover {
+  box-shadow: 0px 5px 18px #000000;
+}
+
+.home-page .top-container .right-side {
+  letter-spacing: 1.5px;
+  vertical-align: top;
+  display: inline-block;
+  width: calc(100% - 285px);
+  margin-left: 30px;
+  border-radius: 4px;
+  overflow: hidden;
+  height: 100%;
+  transition: 0.2s all ease-in;
+  box-shadow: 0px 2px 6px #000000;
+}
+
+.home-page .top-container .right-side:hover {
+  box-shadow: 0px 5px 18px #000000;
+}
+
+.home-page .slogan {
+  background-color: #95a5a6;
+  color: #ffffff;
+  line-height: 24px;
+  overflow: hidden;
+  height: 100%;
+  padding: 20px 10px;
+}
+
+.home-page .login-form {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.home-page .submit-btn {
+  margin: 10px 0 0;
+}
+
+/*# sourceMappingURL=Home.css.map */

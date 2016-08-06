@@ -71,7 +71,5 @@ App.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
                 roles: ['User', 'Manager', 'Admin']
             }
         }
-    });
-
-
+    })
 }]);

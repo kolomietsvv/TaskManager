@@ -1,27 +1,41 @@
 ﻿<div class="home-page">
-    <div class="jumbotron">
-        <h1>Лидер</h1>
-        <p>
-            Вас приветствует менеджер задач и проектов ЛИДЕР.<br />
-            Создавайте проекты, распределяйте задачи, отслеживайте активность проектной команды. <br />
-            Лидер - будь впереди!
-        </p>
+    <div class="modal-footer">
+        <button type="submit"
+                class="btn btn-default"
+                ui-sref="registrationpage">
+            Зарегистрироваться
+        </button>
+        <button class="btn btn-info"
+                ui-sref="loginpage">
+            Login
+        </button>
+        <button class="btn btn-info"
+                ng-click="home.check()">
+            IsOk
+        </button>
     </div>
-    <p>
-        <button class="btn btn-info" 
-                ui-sref="loginpage">Login</button>
-    </p>
-    <p>
-        <button class="btn btn-info" 
-                ng-click="home.check()">IsOk</button>
-    </p>
-    <p>
-        <button type="submit" 
-                class="btn btn-default" 
-                ui-sref="registrationpage">Зарегистрироваться</button>
-    </p>
-    <!--Вот так подключаются подвьюшки-->
-    <div ng-include 
-         src="'LoginPage.html'" 
-         ng-controller="LoginCtrl as loginpage"></div>
+    <div class="top-container">
+        <div class="left-side">
+            <!--Вот так подключаются подвьюшки-->
+            <div ng-include
+                 src="'LoginPage.html'"
+                 ng-controller="LoginCtrl as loginpage">
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="slogan">
+                Создавайте проекты, распределяйте задачи, отслеживайте активность проектной команды. <br />
+                Лидер - будь впереди!
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div 
+     layout="column" 
+     ng-cloak class="md-inline-form"
+     ng-include
+     src="'temp.html'"
+     ng-controller="LoginCtrl as loginpage">
 </div>

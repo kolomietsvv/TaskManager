@@ -11,6 +11,10 @@ namespace TaskManager.PL.WebAPI
             bundles.Add(new ScriptBundle("~/bundles/libraries").Include(
                         "~/bower_components/angular/angular.js",
                         "~/bower_components/angular-ui-router/release/angular-ui-router.js",
+                        "~/bower_components/angular-animate/angular-animate.js",
+                        "~/bower_components/angular-aria/angular-aria.js",
+                        "~/bower_components/angular-material/angular-material.js",
+                        "~/bower_components/angular-messages/angular-messages.js",
                         "~/bower_components/lodash/dist/lodash.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/mainScripts").Include(
@@ -20,9 +24,13 @@ namespace TaskManager.PL.WebAPI
                         "~/Scripts/app/controllers/*.js",
                         "~/Scripts/app/values/*.js",
                         "~/Scripts/app/services/*.js",
-                        "~/Scripts/app/run/*.js"));
+                        "~/Scripts/app/run/*.js",
+                        "~/Scripts/app/directives/*.js"));
 
-            bundles.Add(new StyleBundle("~/content/libraries").Include("~/Styles/css/allStyles.css"));
+            bundles.Add(new StyleBundle("~/content/libraries").Include(
+                        "~/bower_components/angular-material/*.css",
+                        "~/Styles/css/allStyles.css"
+                        ));
 
             //bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
             //            "~/Content/themes/base/jquery.ui.core.css",

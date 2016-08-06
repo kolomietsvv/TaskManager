@@ -7,23 +7,25 @@
     @Styles.Render("~/content/libraries")
 </head>
 <body>
-    <header>
-        <div class="content-wrapper">
-            <div class="float-left">
-                <p class="site-title">
-                </p>
+    <div class="main-container">
+        <header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title">
+                    </p>
+                </div>
+
+                <div class="float-right">
+                </div>
+
             </div>
+        </header>
 
-            <div class="float-right">
-            </div>
-
-        </div>
-    </header>
-
-    @RenderBody()
-    <div ui-view class="container"></div>
-    @Scripts.Render("~/bundles/libraries")
-    @Scripts.Render("~/bundles/mainScripts")
-    @RenderSection("scripts", required: false)
+        @RenderBody()
+        <div ui-view class="container"></div>
+        @Scripts.Render("~/bundles/libraries")
+        @Scripts.Render("~/bundles/mainScripts")
+        @RenderSection("scripts", required: false)
+    </div>
 </body>
 </html>

@@ -65,18 +65,15 @@ namespace TaskManager.DAL.MSSQL
                     user.Email = (string)reader["email"];
                     user.UserId = (Guid)reader["userId"];
 
-                    try { user.FirstName = (string)reader["firstName"]; }
-                    catch (Exception) { new Exception("firstName haven't been added"); }
-                    try { user.LastName = (string)reader["lastName"]; }
-                    catch (Exception) { new Exception("lastName haven't been added"); }
-                    try { user.DateOfBirth = (DateTime)reader["dateOfBirth"]; }
-                    catch (Exception) { new Exception("dateOfBirth haven't been added"); }
-                    try { user.CompanyName = (string)reader["companyName"]; }
-                    catch (Exception) { new Exception("companyName haven't been added"); }
-                    try { user.Qualification = (string)reader["qualification"]; }
-                    catch (Exception) { new Exception("qualification haven't been added"); }
-                    try { user.ExtraInf = (string)reader["extraInf"]; }
-                    catch (Exception) { new Exception("extraInf haven't been added"); }
+                    user.FirstName = reader["firstName"] as string;
+                    user.LastName = reader["lastName"] as string;
+                    
+                    try{user.DateOfBirth = (DateTime)reader["dateOfBirth"];}
+                    catch {;}
+                    
+                    user.CompanyName = reader["companyName"] as string;
+                    user.Qualification = reader["qualification"] as string;
+                    user.ExtraInf = reader["extraInf"] as string;
 
                     connection.Close();
                     command = new SqlCommand("getAllUserRoles", connection);
