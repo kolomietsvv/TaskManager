@@ -10,5 +10,6 @@ namespace TaskManager.DAL.Interface
    public interface IProjectDAO
     {
         List<ProjectTask> GetAllTasks(Guid projectId);
+        void AddTask(Guid projectId, string name, string summary, DateTime deadline);
     }
 }

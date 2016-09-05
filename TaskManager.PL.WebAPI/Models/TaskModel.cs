@@ -7,11 +7,12 @@ namespace TaskManager.PL.WebAPI.Models
 {
     public class TaskModel
     {
-        Guid TaskId { get; set; }
-        string Name { get; set; }
-        string Summary { get; set; }
-        DateTime Deadline { get; set; }
-        DateTime CreationTime { get; set; }
+        public Guid ProjectId { get; set; }
+        public Guid TaskId { get; set; }
+        public string Name { get; set; }
+        public string Summary { get; set; }
+        public DateTime Deadline { get; set; }
+        public DateTime CreationTime { get; set; }
 
         static public List<TaskModel> GetAllTasks(Guid projectId)
         {
@@ -24,6 +25,10 @@ namespace TaskManager.PL.WebAPI.Models
                 CreationTime = ent.CreationTime
             })
             .ToList();
+        }
+        static public void AddTask(Guid projectId, string name, string summary, DateTime deadline)
+        {
+            ContainerLogic.projectLogic.AddTask(projectId, name, summary, deadline);
         }
     }
 }

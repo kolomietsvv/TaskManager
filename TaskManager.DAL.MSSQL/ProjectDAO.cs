@@ -24,7 +24,7 @@ namespace TaskManager.DAL.MSSQL
             {
                 var command = new SqlCommand("getAllTasks", connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("@projectId", System.Data.SqlDbType.VarChar).Value = projectId.ToString();
+                command.Parameters.Add("@projectId", SqlDbType.VarChar).Value = projectId.ToString();
                 connection.Open();
                 var reader = command.ExecuteReader();
                 while (reader.Read())
@@ -42,6 +42,20 @@ namespace TaskManager.DAL.MSSQL
 
                 }
                 return tasks;
+            }
+        }
+        public void AddTask(Guid projectId, string name, string summary, DateTime deadline)
+        {
+            using (var connection=new SqlConnection(_connectionString))
+            {
+                var command = new SqlCommand("addTask", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@projectTd", SqlDbType.VarChar).Value = projectId.ToString();
+                command.Parameters.Add("@taskName", SqlDbType.VarChar).Value = name;
+                command.Parameters.Add("@taskSummary", SqlDbType.VarChar).Value = summary;
+                command.Parameters.Add("@deadline", SqlDbType.DateTime2).Value = deadline;
+                connection.Open();
+                command.ExecuteNonQuery();
             }
         }
     }

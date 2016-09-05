@@ -15,5 +15,16 @@ namespace TaskManager.PL.WebAPI.Controllers
         {
             return Json(new { Tasks = TaskModel.GetAllTasks(projectId) });
         }
+        [HttpPost]
+        [Authorize(Roles = "User")]
+        public ActionResult AddTask(TaskModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                TaskModel.AddTask(model.ProjectId, model.Name, model.Summary, model.Deadline);
+                return Json(new { TaskName = model.Name, Summary = model.Summary, Deadline=model.Deadline });
+            }
+            return new HttpStatusCodeResult(403, "Invalid Form");
+        }
     }
 }

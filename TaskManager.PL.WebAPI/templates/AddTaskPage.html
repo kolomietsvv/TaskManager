@@ -2,16 +2,16 @@
     <md-content md-theme="docs-dark"
                 layout-padding
                 class="login-form">
+
         <md-input-container class="md-block md-input-has-value">
-
-            <label for="projectName">Название задачи</label>
+            <label for="taskName">Название задачи</label>
             <input ng-required="true"
-                   name="projectName"
-                   ng-model="projectName"
+                   name="taskName"
+                   ng-model="taskName"
                    class="ng-pristine md-input ng-invalid ng-invalid-required ng-touched"
-                   id="projectName" />
-
+                   id="taskName" />
         </md-input-container>
+
         <md-input-container class="md-block md-input-has-value">
             <label for="summary">Краткое описание задачи</label>
 
@@ -20,16 +20,17 @@
                    ng-model="taskSummary"
                    type="text" />
         </md-input-container>
-        <md-input-container class="md-block md-input-has-value">
-            <label for="summary">Крaйняя дата выполнения задачи</label>
-            <md-datepicker ng-model="taskDeadline" 
-                           md-placeholder="Enter date"
-                           md-open-on-focus>
-            </md-datepicker>
-        </md-input-container>
+
+        <label for="summary">Крaйняя дата выполнения задачи</label>
+        <md-datepicker ng-model="taskDeadline"
+                       md-placeholder="Enter date"
+                       md-min-date="minDate"
+                       md-open-on-focus>
+        </md-datepicker>
+
     </md-content>
 
-    <md-button ng-click="answer({TaskName: taskName, Summary: taskSummary, DeadLine: taskDeadline})">
+    <md-button ng-click="answer({ProjectId: projectId, Name: taskName, Summary: taskSummary, DeadLine: taskDeadline})">
         Добавить
     </md-button>
 </div>

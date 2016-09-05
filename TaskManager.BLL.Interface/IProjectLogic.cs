@@ -10,5 +10,6 @@ namespace TaskManager.BLL.Interface
     public interface IProjectLogic
     {
         List<ProjectTask> GetAllTasks(Guid projectId);
+        void AddTask(Guid projectId, string name, string summary, DateTime deadline);
     }
 }
