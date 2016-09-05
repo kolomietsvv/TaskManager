@@ -1,27 +1,25 @@
 ﻿<div class="user-page">
-    <button class="btn btn-default" ng-click="userpage.nextPage()">Go</button>
     <button class="btn btn-default" ng-click="userpage.logoutGo()">Выйти</button>
-    <form novalidate name="projectForm" ng-submit="userpage.$valid && userpage.addProject()">
-        <input placeholder="projectName"
-               id="projectName"
-               ng-model="userpage.projectName"
-               type="text"
-               name="projectName"
-               ng-required="true" />
-        <button class="btn btn-default" ng-click="userpage.addProject()">Добавить проект</button>
-    </form>
+
+    <md-button class="md-primary md-raised" ng-click="userpage.showAddProjectDialog($event)">
+        Создать проект
+    </md-button>
 
     <div class="projects-container">
         <div class="project-item"
-             ng-repeat="project in userpage.projects track by $index">
+             ng-repeat="project in userpage.projects track by $index"
+             ui-sref="projectpage({projectId: project.Id})">
             <div class="project-title">
-                {{::project.ProjectName}}<!-- ::  <=== it is one time data binding in angularjs-->
+                {{::project.ProjectName}}<!--model-->
             </div>
             <div class="project-summary">
                 {{::project.Summary}}
             </div>
+            <div class="project-title">
+                {{::project.Id}}<!--model-->
+            </div>
         </div>
     </div>
 
-    
+
 </div>

@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -162,6 +163,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -173,6 +175,7 @@
     <Compile Include="Models\MyRoleProvider.cs" />
     <Compile Include="Models\ProjectModel.cs" />
     <Compile Include="Models\RegistrationModel.cs" />
+    <Compile Include="Models\TaskModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -937,6 +940,12 @@
     <Content Include="Content\scss\Main.min.css">
       <DependentUpon>Main.css</DependentUpon>
     </Content>
+    <Content Include="Content\scss\variables\variables.css">
+      <DependentUpon>variables.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\scss\variables\variables.min.css">
+      <DependentUpon>variables.css</DependentUpon>
+    </Content>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -1014,9 +1023,7 @@
     <Content Include="Scripts\app\controllers\confirmRegistration.ctrl.js" />
     <Content Include="Scripts\app\controllers\home.ctrl.js" />
     <Content Include="Scripts\app\controllers\login.ctrl.js" />
-    <Content Include="Scripts\app\controllers\main.ctrl.js" />
     <Content Include="Scripts\app\controllers\registration.ctrl.js" />
-    <Content Include="Scripts\app\controllers\tmp.js" />
     <Content Include="Scripts\app\controllers\user.ctrl.js" />
     <Content Include="Scripts\app\run\checkAuth.js" />
     <Content Include="Scripts\app\run\loginRequired.js" />
@@ -1026,13 +1033,12 @@
     <Content Include="Scripts\app\values\userData.value.js" />
     <Content Include="Scripts\templates.js" />
     <Content Include="Styles\css\allStyles.css" />
+    <Content Include="templates\AddProjectPage.html" />
+    <Content Include="templates\AddTaskPage.html" />
     <Content Include="templates\Home.html" />
-    <Content Include="templates\HomePage.html" />
     <Content Include="templates\LoginPage.html" />
-    <Content Include="templates\Page1.html" />
-    <Content Include="templates\Page2.html" />
+    <Content Include="templates\ProjectPage.html" />
     <Content Include="templates\RegistrationPage.html" />
-    <Content Include="templates\temp.html" />
     <Content Include="templates\UserPage.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -1329,6 +1335,14 @@
     <Content Include="bower_components\angular-messages\LICENSE.md" />
     <Content Include="bower_components\angular-messages\package.json" />
     <Content Include="bower_components\angular-messages\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\scss\variables\variables.css.map">
+      <DependentUpon>variables.css</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\app\controllers\project.ctrl.js" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

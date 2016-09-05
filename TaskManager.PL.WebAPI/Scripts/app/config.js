@@ -37,7 +37,7 @@ App.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
            templateUrl: 'LoginPage.html',/*Имя вьюшки*/
            controller: 'LoginCtrl',/*Это имя ангуляр контроллера (*.ctrl.js)*/
            controllerAs: 'loginpage'/*на вьюшке спрашиваем это (это же this  в контроллере js)*/,
-           data: {
+           data: {// сюда дозволено ходить всем
                access: {
                    roles: []
                }
@@ -54,6 +54,23 @@ App.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
                 }
             }
         })
+    .state('projectpage', {
+        url: '/project?projectId',
+        templateUrl: 'ProjectPage.html',
+        controller: 'ProjectCtrl',
+        controllerAs: 'projectpage',
+        params: {
+            projectId: {
+                value: ''
+            }
+        },
+        data: {
+            access: {
+                roles: ['User', 'Manager', 'Admin']
+            }
+        }
+    })
+
     .state('page1', {
         url: '/page1',
         templateUrl: 'Page1.html',
@@ -63,6 +80,7 @@ App.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             }
         }
     })
+
     .state('page2', {
         url: '/page2',
         templateUrl: 'Page2.html',
@@ -71,5 +89,5 @@ App.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
                 roles: ['User', 'Manager', 'Admin']
             }
         }
-    })
+    });
 }]);

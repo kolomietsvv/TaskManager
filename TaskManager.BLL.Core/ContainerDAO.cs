@@ -11,9 +11,11 @@ namespace TaskManager.BLL.Core
     class ContainerDAO
     {
         public static IUserDAO userDAO;
+        public static IProjectDAO projectDAO;
         static ContainerDAO()
         {
             userDAO = new UserDAO();
+            projectDAO = new ProjectDAO();
         }
     }
 }

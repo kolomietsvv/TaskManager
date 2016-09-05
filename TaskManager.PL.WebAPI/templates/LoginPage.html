@@ -1,35 +1,30 @@
-﻿<div class="els-text-input">
-    <form novalidate name="loginForm" ng-submit="loginForm.$valid && loginpage.loginGo()">
-        <!--позвали this.loginGo()-->
-        <div class="form-group">
-            <md-content md-theme="docs-dark" 
-                        layout-padding
-                        class="login-form">
-                <md-input-container class="md-block md-input-has-value">
+﻿<form novalidate name="loginForm" ng-submit="loginForm.$valid && loginpage.loginGo()">
+    <!--позвали this.loginGo()-->
+    <div class="form-group">
+        <md-content md-theme="docs-dark"
+                    layout-padding
+                    class="login-form">
+            <md-input-container class="md-block md-input-has-value">
 
-                    <label for="login">Логин</label>
-                    <input required=""
-                           name="login"
-                           ng-model="loginpage.login"
-                           class="ng-pristine md-input ng-invalid ng-invalid-required ng-touched"
-                           id="login"
-                           aria-required="true"
-                           aria-invalid="true">
+                <label for="login">Логин</label>
+                <input name="login"
+                       ng-model="loginpage.login"
+                       class="ng-pristine md-input ng-invalid ng-invalid-required ng-touched"
+                       id="login"
+                       ng-required="true" />
 
-                </md-input-container>
-                <md-input-container class="md-block md-input-has-value">
-                    <label for="password">Пароль</label>
+            </md-input-container>
+            <md-input-container class="md-block md-input-has-value">
+                <label for="password">Пароль</label>
 
-                    <input id="password"
-                           ng-model="loginpage.password"
-                           type="password"
-                           name="password"
-                           ng-required="true" />
-                </md-input-container>
-            </md-content>
+                <input id="password"
+                       ng-model="loginpage.password"
+                       type="password"
+                       name="password"
+                       ng-required="true" />
+            </md-input-container>
+        </md-content>
 
-            <md-button class="md-raised submit-btn" type="submit">Войти</md-button>
-        </div>
-
-    </form>
-</div>
+        <md-button class="md-raised submit-btn" type="submit">Войти</md-button>
+    </div>
+</form>

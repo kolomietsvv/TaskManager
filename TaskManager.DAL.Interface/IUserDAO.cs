@@ -14,7 +14,7 @@ namespace TaskManager.DAL.Interface
         User GetUser(string login);
         bool CanLogin(string login, string password);
         bool AddRole(string userId, string roleName);
-        void AddProject(string login, string projectName);
+        void AddProject(string login, string projectName, string summary);
         List<Project> GetAllProjects(string loginName);
     }
 }

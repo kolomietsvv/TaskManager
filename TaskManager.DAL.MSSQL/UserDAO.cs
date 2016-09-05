@@ -153,14 +153,15 @@ namespace TaskManager.DAL.MSSQL
             }
         }
 
-        public void AddProject(string login, string projectName)
+        public void AddProject(string login, string projectName, string summary)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 var command = new SqlCommand("addProject", connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("@loginName", System.Data.SqlDbType.VarChar).Value = login;
-                command.Parameters.Add("@projectName", System.Data.SqlDbType.VarChar).Value = projectName;
+                command.Parameters.Add("@loginName", System.Data.SqlDbType.NVarChar).Value = login;
+                command.Parameters.Add("@projectName", System.Data.SqlDbType.NVarChar).Value = projectName;
+                command.Parameters.Add("@summary", System.Data.SqlDbType.NVarChar).Value = summary;
                 connection.Open();
                 command.ExecuteNonQuery();
             }

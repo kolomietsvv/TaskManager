@@ -1,0 +1,24 @@
+﻿<div>
+
+    <md-button class="md-primary md-raised" ng-click="projectpage.showAddTaskDialog($event)">
+        Добавить задачу
+    </md-button>
+
+    <div class="task-container">
+        <div class="task-item"
+             ng-repeat="task in projectpage.tasks track by $index">
+            <div class="tasks-title">
+                {{::task.Name}}<!-- ::  <=== it is one time data binding in angularjs-->
+            </div>
+            <div class="project-summary">
+                {{::task.Summary}}
+            </div>
+            <div class="project-summary">
+                {{::task.CreationTime}}
+            </div>
+            <div class="project-summary">
+                {{::task.Deadline}}
+            </div>
+        </div>
+    </div>
+</div>

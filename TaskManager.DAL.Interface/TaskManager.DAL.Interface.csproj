@@ -39,6 +39,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IProjectDAO.cs" />
     <Compile Include="IUserDAO.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -46,6 +47,9 @@
       <Project>{20784ede-73b3-4634-b3ca-c02b880a4316}</Project>
       <Name>TaskManager.Common.Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

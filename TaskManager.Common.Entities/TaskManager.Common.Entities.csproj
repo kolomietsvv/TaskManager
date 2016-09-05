@@ -42,7 +42,7 @@
     <Compile Include="Project.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="SubTask.cs" />
-    <Compile Include="Task.cs" />
+    <Compile Include="ProjectTask.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

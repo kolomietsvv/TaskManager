@@ -15,8 +15,8 @@ namespace TaskManager.PL.WebAPI.Controllers
         {
             if (ModelState.IsValid)
             {
-                ProjectModel.AddProject(User.Identity.Name, model.ProjectName);
-                return new HttpStatusCodeResult(200, "Added project: " + model.ProjectName);
+                ProjectModel.AddProject(User.Identity.Name, model.ProjectName, model.Summary);
+                return Json(new { ProjectName = model.ProjectName , Summary=model.Summary});
             }
             return new HttpStatusCodeResult(403, "Invalid Form");
         }

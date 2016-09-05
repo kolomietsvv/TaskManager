@@ -33,9 +33,9 @@ namespace TaskManager.BLL.Core
         {
             userDAO.AddRole(userId, roleName);
         }
-        public void AddProject(string userLogin, string projectName)
+        public void AddProject(string userLogin, string projectName, string summary)
         {
-            userDAO.AddProject(userLogin, projectName);
+            userDAO.AddProject(userLogin, projectName, summary);
         }
         public List<Project> GetAllProjects(string userLogin) 
         {

@@ -28,12 +28,12 @@ namespace TaskManager.PL.WebAPI.Controllers
             return new HttpStatusCodeResult(403, "Invalid Form");
         }
 
-        [HttpPost]
+        
         [Authorize]
         public ActionResult IsAuthorized()// user не использовать user from ent, but from models
         {
             var user = AccountModel.Get(User.Identity.Name);
-            return Json(new { Login = user.LoginName, Roles = user.Roles});
+            return Json(new { Login = user.LoginName, Roles = user.Roles });
         }
 
         [HttpPost]
@@ -52,14 +52,17 @@ namespace TaskManager.PL.WebAPI.Controllers
                 if (AccountModel.CreateNewAccount(model.Login, model.Password, model.Email))
                 {
                     System.Net.Mail.MailMessage m = new System.Net.Mail.MailMessage(
-                    new System.Net.Mail.MailAddress("kolomiets.victoriya@gmail.com", "Web Registration"),
-                    new System.Net.Mail.MailAddress(model.Email));
+                        new System.Net.Mail.MailAddress("kolomiets.victoriya@gmail.com", "Web Registration"),
+                        new System.Net.Mail.MailAddress(model.Email));
                     m.Subject = "Email confirmation";
                     m.Body = string.Format("Пройдите по ссылке для подтверждения регистрации <a href=\"{0}\"title=\"User Email Confirm\">{0}</a>",
-                        Url.Action("ConfirmRegistration", "Account", new { token = AccountModel.Get(model.Login).UserId, login = model.Login }, Request.Url.Scheme));
+                        Url.Action("ConfirmRegistration", "Account",
+                        new { token = AccountModel.Get(model.Login).UserId, login = model.Login },
+                        Request.Url.Scheme));
                     m.IsBodyHtml = true;
                     System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.gmail.com");
                     smtp.Credentials = new System.Net.NetworkCredential("kolomiets.victoriya@gmail.com", "79198308196");
+                    smtp.Port = 587;
                     smtp.EnableSsl = true;
                     smtp.Send(m);
                     return new HttpStatusCodeResult(200, "User've been created");

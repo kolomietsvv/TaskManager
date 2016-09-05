@@ -12,15 +12,16 @@ namespace TaskManager.PL.WebAPI.Models
         [Required]
         public string ProjectName { get; set; }
         public string Summary { get; set; }
+        public string Id { get; set; }
 
-         static public void AddProject(string managerLogin, string projectName)
+         static public void AddProject(string managerLogin, string projectName, string summary)
         {
-            ContainerLogic.userLogic.AddProject(managerLogin, projectName);
+            ContainerLogic.userLogic.AddProject(managerLogin, projectName, summary);
         }
         static public List<ProjectModel> GetAllProjects(string loginName)//нигде в контроллере не использовать ent
         {
             return ContainerLogic.userLogic.GetAllProjects(loginName)
-                .Select(ent => new ProjectModel() { ProjectName = ent.Name, Summary = ent.Summary })
+                .Select(ent => new ProjectModel() { ProjectName = ent.Name, Summary = ent.Summary,  Id=ent.ProjectId.ToString()})
                 .ToList();
         }
     }

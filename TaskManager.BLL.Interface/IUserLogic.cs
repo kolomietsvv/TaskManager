@@ -14,7 +14,7 @@ namespace TaskManager.BLL.Interface
        User GetUser(string userLogin);
        bool CanLogin(string userLogin, string password);
        void AddRole(string userId, string roleName);
-       void AddProject(string userLogin, string projectName);
+       void AddProject(string userLogin, string projectName, string summary);
        List<Project> GetAllProjects(string userLogin);
     }
 }
