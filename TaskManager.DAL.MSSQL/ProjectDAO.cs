@@ -50,9 +50,9 @@ namespace TaskManager.DAL.MSSQL
             {
                 var command = new SqlCommand("addTask", connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("@projectTd", SqlDbType.VarChar).Value = projectId.ToString();
-                command.Parameters.Add("@taskName", SqlDbType.VarChar).Value = name;
-                command.Parameters.Add("@taskSummary", SqlDbType.VarChar).Value = summary;
+                command.Parameters.Add("@projectId", SqlDbType.VarChar).Value = projectId.ToString();
+                command.Parameters.Add("@taskName", SqlDbType.NVarChar).Value = name;
+                command.Parameters.Add("@taskSummary", SqlDbType.NVarChar).Value = summary;
                 command.Parameters.Add("@deadline", SqlDbType.DateTime2).Value = deadline;
                 connection.Open();
                 command.ExecuteNonQuery();

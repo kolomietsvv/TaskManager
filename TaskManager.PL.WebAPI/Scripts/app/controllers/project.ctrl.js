@@ -1,20 +1,20 @@
 ﻿'use strict';
 App.controller('ProjectCtrl',
-    ["$scope", "$http", "$mdDialog", "$state", "userData", "userLoaded", "$stateParams",
+    ["$scope", "$http", "$mdDialog", "$state", "userData", "userLoaded", "$stateParams", 
         function ($scope, $http, $mdDialog, $state, userData, userLoaded, $stateParams) {
             var vm = this,
                 projectId = $stateParams.projectId;
-            vm.projectName = '';
-            vm.projectSummary = '';
             vm.tasks = [];
             init();
-
-            $scope.minDate = new Date();
 
             vm.showAddTaskDialog = function (ev) {
                 $mdDialog.show({
                     controller: DialogController,
                     templateUrl: 'AddTaskPage.html',
+                    locals: {
+                        projectId: projectId,
+                        minDate: new Date()
+                    },
                     parent: angular.element(document.body),
                     targetEvent: ev,
                     clickOutsideToClose: true
@@ -41,9 +41,8 @@ App.controller('ProjectCtrl',
                  });
             }
 
-
-            function DialogController($scope, $mdDialog) {
-                projectId = $stateParams.projectId;
+            function DialogController($scope, $mdDialog, locals) {
+                $scope.locals = locals;
                 $scope.hide = function () {
                     $mdDialog.hide();
                 };
@@ -54,4 +53,11 @@ App.controller('ProjectCtrl',
                     $mdDialog.hide(answer);
                 };
             }
-        }]);
+        }])
+    .filter("jsDate", function () {
+            var regxp = /[0-9]+/;
+            return function (json) {
+                var intDate = json.match(regxp);
+                return new Date(parseInt(intDate));
+            };
+        });;

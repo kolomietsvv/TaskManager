@@ -3,8 +3,6 @@ App.controller('UserCtrl',
     ["$scope", "$http", "$mdDialog", "$state", "userData", "userLoaded", "userIsLoaded",
         function ($scope, $http, $mdDialog, $state, userData, userLoaded, userIsLoaded) {
             var vm = this;
-            vm.projectName = '';
-            vm.projectSummary = '';
             vm.projects = [];
             init();
 
@@ -40,16 +38,6 @@ App.controller('UserCtrl',
                  });
             };
 
-            vm.addProject = function () {
-                $http.post('User/AddProject/', { ProjectName: vm.projectName, Summary: projectSummary })
-                 .then(function (res) {
-                     var data = res.data;
-                     vm.projects.push(data);
-                 }, function (res) {
-                     alert("Smth went wrong");
-                 });
-            };
-
             function init() {
                 $http.post('User/GetAllProjects/', { loginName: userData.Login })
                  .then(function (res) {
@@ -59,10 +47,7 @@ App.controller('UserCtrl',
                  });
             }
 
-
             function DialogController($scope, $mdDialog) {
-                vm.projectName = '';
-                vm.projectSummary = '';
                 $scope.hide = function () {
                     $mdDialog.hide();
                 };

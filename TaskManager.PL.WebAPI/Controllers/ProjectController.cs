@@ -22,7 +22,7 @@ namespace TaskManager.PL.WebAPI.Controllers
             if(ModelState.IsValid)
             {
                 TaskModel.AddTask(model.ProjectId, model.Name, model.Summary, model.Deadline);
-                return Json(new { TaskName = model.Name, Summary = model.Summary, Deadline=model.Deadline });
+                return Json(new { Name = model.Name, Summary = model.Summary, Deadline=model.Deadline, CreationTime=new DateTime()});
             }
             return new HttpStatusCodeResult(403, "Invalid Form");
         }

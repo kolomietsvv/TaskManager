@@ -1344,6 +1344,9 @@
   <ItemGroup>
     <Content Include="Scripts\app\controllers\project.ctrl.js" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\scss\ProjectPage.scss" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

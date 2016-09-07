@@ -1,36 +1,44 @@
 ﻿<div class="form-group">
-    <md-content md-theme="docs-dark"
-                layout-padding
-                class="login-form">
+    <form name="addTaskForm" flex-gt-xs>
+        <md-content md-theme="docs-dark"
+                    layout-padding
+                    class="login-form">
 
-        <md-input-container class="md-block md-input-has-value">
-            <label for="taskName">Название задачи</label>
-            <input ng-required="true"
-                   name="taskName"
-                   ng-model="taskName"
-                   class="ng-pristine md-input ng-invalid ng-invalid-required ng-touched"
-                   id="taskName" />
-        </md-input-container>
+            <md-input-container class="md-block md-input-has-value">
+                <label for="taskName">Название задачи</label>
+                <input ng-required="true"
+                       name="taskName"
+                       ng-model="taskName"
+                       class="ng-pristine md-input ng-invalid ng-invalid-required ng-touched"
+                       id="taskName" />
+            </md-input-container>
 
-        <md-input-container class="md-block md-input-has-value">
-            <label for="summary">Краткое описание задачи</label>
+            <md-input-container class="md-block md-input-has-value">
+                <label for="summary">Краткое описание задачи</label>
+                <input name="summary"
+                       id="summary"
+                       ng-model="taskSummary"
+                       type="text"
+                       value=locals.projectId />
+            </md-input-container>
 
-            <input name="summary"
-                   id="summary"
-                   ng-model="taskSummary"
-                   type="text" />
-        </md-input-container>
+            <!--<md-input-container>--><!--should update  Angular Materia to 1.1.0 and disable browser cache-->
+                <label for="deadline">Крaйняя дата выполнения задачи</label>
+                <md-datepicker ng-model="taskDeadline"
+                               ng-required="true"
+                               name="deadline"
+                               md-min-date=locals.minDate>
+                </md-datepicker>
+                <!--<div ng-messages="deadline.$error">
+                    <div ng-message="valid">Введённая строка не является датой</div>
+                    <div ng-message="required">Введите краюнюю дату выполнения задачи</div>
+                    <div ng-message="mindate">Не возможно ввести дату раньше текущей</div>
+                </div>
+            </md-input-container>-->
+        </md-content>
 
-        <label for="summary">Крaйняя дата выполнения задачи</label>
-        <md-datepicker ng-model="taskDeadline"
-                       md-placeholder="Enter date"
-                       md-min-date="minDate"
-                       md-open-on-focus>
-        </md-datepicker>
-
-    </md-content>
-
-    <md-button ng-click="answer({ProjectId: projectId, Name: taskName, Summary: taskSummary, DeadLine: taskDeadline})">
-        Добавить
-    </md-button>
+        <md-button ng-click="answer({ProjectId: locals.projectId, Name: taskName, Summary: taskSummary, DeadLine: taskDeadline})">
+            Добавить
+        </md-button>
+    </form>
 </div>
