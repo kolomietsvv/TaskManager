@@ -22,7 +22,8 @@ namespace TaskManager.PL.WebAPI.Models
                 Name = ent.Name,
                 Summary = ent.Summary,
                 Deadline = ent.Deadline,
-                CreationTime = ent.CreationTime
+                CreationTime = ent.CreationTime,
+                TaskId=ent.TaskId
             })
             .ToList();
         }

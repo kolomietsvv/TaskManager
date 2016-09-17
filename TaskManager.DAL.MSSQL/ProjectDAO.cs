@@ -13,11 +13,11 @@ using System;
 
 namespace TaskManager.DAL.MSSQL
 {
-   public class ProjectDAO : IProjectDAO
+    public class ProjectDAO : IProjectDAO
     {
         private string _connectionString = ConfigurationManager.ConnectionStrings["mssql"].ConnectionString;
 
-        public List<ProjectTask> GetAllTasks(Guid projectId)
+        public IEnumerable<ProjectTask> GetAllTasks(Guid projectId)
         {
             var tasks = new List<ProjectTask>();
             using (var connection = new SqlConnection(_connectionString))
@@ -31,12 +31,12 @@ namespace TaskManager.DAL.MSSQL
                 {
                     try
                     {
-                        tasks.Add(new ProjectTask((Guid)reader["projectId"], (string)reader["name"], 
+                        tasks.Add(new ProjectTask((Guid)reader["taskId"], (string)reader["name"],
                             (string)reader["summary"], (DateTime)reader["creationTime"], (DateTime)reader["deadline"]));
                     }
                     catch (Exception)
                     {
-                        tasks.Add(new ProjectTask((Guid)reader["projectId"], 
+                        tasks.Add(new ProjectTask((Guid)reader["taskId"],
                             (string)reader["name"], (DateTime)reader["creationTime"], (DateTime)reader["deadline"]));
                     }
 
@@ -46,7 +46,7 @@ namespace TaskManager.DAL.MSSQL
         }
         public void AddTask(Guid projectId, string name, string summary, DateTime deadline)
         {
-            using (var connection=new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(_connectionString))
             {
                 var command = new SqlCommand("addTask", connection);
                 command.CommandType = CommandType.StoredProcedure;
@@ -58,5 +58,58 @@ namespace TaskManager.DAL.MSSQL
                 command.ExecuteNonQuery();
             }
         }
+
+        public IEnumerable<Project> GetAllLike(Project request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Project GetProject(string Id)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var command = new SqlCommand("getProject", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@projectId", SqlDbType.VarChar).Value = Id;
+                connection.Open();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    return new Project()
+                    {
+                        ManagerLogin = (string)reader["loginName"],
+                        Summary = (string)reader["summary"],
+                        Name = (string)reader["name"]
+                    };
+                }
+                return null;
+            }
+        }
+
+        public IEnumerable<User> GetAllContributors(string projectId)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var command = new SqlCommand("getAllProjectContributors", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@projectId", SqlDbType.VarChar).Value = projectId;
+                connection.Open();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    yield return new User()
+                    {
+                        LoginName = (string)reader["loginName"],
+                        Email = (string)reader["email"],
+                        FirstName = reader["firstName"] as string,
+                        LastName = reader["lastName"] as string,
+                        CompanyName = reader["companyName"] as string,
+                        Qualification = reader["qualification"] as string,
+                        ExtraInf = reader["extraInf"] as string,
+                    };
+                }
+            }
+        }
+
     }
 }

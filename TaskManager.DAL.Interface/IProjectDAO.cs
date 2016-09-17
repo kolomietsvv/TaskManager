@@ -7,9 +7,12 @@ using TaskManager.Common.Entities;
 
 namespace TaskManager.DAL.Interface
 {
-   public interface IProjectDAO
+    public interface IProjectDAO
     {
-        List<ProjectTask> GetAllTasks(Guid projectId);
+        IEnumerable<User> GetAllContributors(string projectId);
+        Project GetProject(string Id);
+        IEnumerable<ProjectTask> GetAllTasks(Guid projectId);
         void AddTask(Guid projectId, string name, string summary, DateTime deadline);
+        IEnumerable<Project> GetAllLike(Project request);
     }
 }

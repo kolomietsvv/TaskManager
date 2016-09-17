@@ -1,17 +1,25 @@
 ﻿<div class="project-page">
-    <md-button class="md-primary md-raised" ng-click="projectpage.showAddTaskDialog($event)">
+    <md-button class="md-primary md-raised"
+               ng-if="projectpage.ifIContributor()"
+                ng-click="projectpage.showAddTaskDialog($event)">
         Добавить задачу
+    </md-button>
+    <md-button class="md-primary md-raised"
+               ng-click="projectpage.addContributor($event)"
+               ng-if="projectpage.isMyProject()">
+        Пригласить участников
     </md-button>
 
     <div class="tasks-container">
         <div class="task-item"
-             ng-repeat="task in projectpage.tasks track by $index">
+             ng-repeat="task in projectpage.tasks track by $index"
+             ui-sref="taskpage({taskId: task.TaskId})">
             <div class="task-title">
                 {{::task.Name}}<!-- ::  <=== it is one time data binding in angularjs-->
             </div>
             <div class="task-summary">
                 {{::task.Summary}}
-            </div>            
+            </div>
             <div class="task-creationTime">
                 {{::task.CreationTime|jsDate| date:'dd:MM:yyyy'}}
             </div>

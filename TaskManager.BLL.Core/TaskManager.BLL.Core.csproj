@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="ContainerDAO.cs" />
     <Compile Include="ProjectLogic.cs" />
+    <Compile Include="TaskLogic.cs" />
     <Compile Include="UserLogic.cs" />
   </ItemGroup>
   <ItemGroup>

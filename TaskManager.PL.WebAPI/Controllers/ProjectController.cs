@@ -11,20 +11,26 @@ namespace TaskManager.PL.WebAPI.Controllers
     {
         [HttpPost]
         [Authorize(Roles = "User")]
-        public ActionResult GetAllTasks(Guid projectId)
+        public ActionResult GetProject(Guid projectId)
         {
-            return Json(new { Tasks = TaskModel.GetAllTasks(projectId) });
+            return Json(new
+            {
+                Contributors =ProjectModel.GetAllContributors(projectId.ToString()),
+                Project = ProjectModel.GetProject(projectId.ToString()),
+                Tasks = TaskModel.GetAllTasks(projectId)
+            });
         }
         [HttpPost]
         [Authorize(Roles = "User")]
         public ActionResult AddTask(TaskModel model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 TaskModel.AddTask(model.ProjectId, model.Name, model.Summary, model.Deadline);
-                return Json(new { Name = model.Name, Summary = model.Summary, Deadline=model.Deadline, CreationTime=new DateTime()});
+                return Json(new { Name = model.Name, Summary = model.Summary, Deadline = model.Deadline, CreationTime = new DateTime() });
             }
             return new HttpStatusCodeResult(403, "Invalid Form");
         }
+
     }
 }

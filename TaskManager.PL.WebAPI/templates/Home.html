@@ -5,18 +5,9 @@
                 ui-sref="registrationpage">
             Зарегистрироваться
         </button>
-        <button class="btn btn-info"
-                ui-sref="loginpage">
-            Login
-        </button>
-        <button class="btn btn-info"
-                ng-click="home.check()">
-            IsOk
-        </button>
     </div>
     <div class="top-container">
         <div class="left-side">
-            <!--Вот так подключаются подвьюшки-->
             <div ng-include
                  src="'LoginPage.html'"
                  ng-controller="LoginCtrl as loginpage">

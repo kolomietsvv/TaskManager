@@ -1,0 +1,80 @@
+﻿<form novalidate name="searchForm" ng-submit="searchpage.getAllUsersLike()">
+    <div class="form-group">
+        <md-content layout-padding
+                    class="login-form">
+            <md-input-container class="md-block md-input-has-value">
+                <label for="loginName">Логин</label>
+                <input name="loginName"
+                       ng-model="searchpage.loginName"
+                       id="loginName" />
+            </md-input-container>
+            <md-input-container class="md-block md-input-has-value">
+                <label for="firstName">Имя</label>
+                <input name="firstName"
+                       id="firstName"
+                       ng-model="searchpage.firstName"
+                       type="text" />
+            </md-input-container>
+            <md-input-container class="md-block md-input-has-value">
+                <label for="lastName">Фамилия</label>
+                <input name="lastName"
+                       id="lastName"
+                       ng-model="searchpage.lastName"
+                       type="text" />
+            </md-input-container>
+            <md-input-container class="md-block md-input-has-value">
+                <label for="companyName">Компания</label>
+                <input name="companyName"
+                       id="companyName"
+                       ng-model="searchpage.companyName"
+                       type="text" />
+            </md-input-container>
+            <md-input-container class="md-block md-input-has-value">
+                <label for="qualification">Квалификация</label>
+                <input name="qualification"
+                       id="firstName"
+                       ng-model="searchpage.firstName"
+                       type="text" />
+            </md-input-container>
+            <md-input-container class="md-block md-input-has-value">
+                <label for="email">Электронная почта</label>
+                <input name="email"
+                       id="email"
+                       ng-model="searchpage.email"
+                       type="text" />
+            </md-input-container>
+            <md-input-container class="md-block md-input-has-value">
+                <label for="age">Возраст</label>
+                <input name="age"
+                       id="age"
+                       ng-model="searchpage.age"
+                       type="text" />
+            </md-input-container>
+            <md-input-container class="md-block md-input-has-value">
+                <label for="extraInf">Дополнительная информация</label>
+                <input name="extraInf"
+                       id="extraInf"
+                       ng-model="searchpage.extraInf"
+                       type="text" />
+            </md-input-container>
+        </md-content>
+        <md-button class="md-raised submit-btn" type="submit">Найти</md-button>
+    </div>
+</form>
+
+<div class="users-container">
+    <div class="user-item"
+         ng-repeat="user in searchpage.users track by $index">
+        <div class="task-title" ui-sref="userpage({login:user.LoginName})">
+            <div class="login">{{user.LoginName}}</div>
+            <div class="email">{{user.Email}}</div>
+            <div ng-if="user.LastName!=null" class="lastName">{{user.LastName}}</div>
+            <div ng-if="user.FirstName!=null" class="firstName">{{user.FirstName}}</div>
+            <div ng-if="user.Age!=0" class="age">{{user.Age}}</div>
+            <div ng-if="user.CompanyName!=null" class="companyName">{{user.CompanyName}}</div>
+            <div ng-if="user.Qualification!=null" class="qualification">{{user.Qualification}}</div>
+            <div ng-if="user.ExtraInf!=null" class="extraInf">{{user.ExtraInf}}</div>
+        </div>
+    </div>
+</div>
+</form>

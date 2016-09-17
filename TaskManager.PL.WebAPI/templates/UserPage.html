@@ -1,8 +1,14 @@
 ﻿<div class="user-page">
     <button class="btn btn-default" ng-click="userpage.logoutGo()">Выйти</button>
 
-    <md-button class="md-primary md-raised" ng-click="userpage.showAddProjectDialog($event)">
+    <md-button class="md-primary md-raised" 
+               ng-click="userpage.showAddProjectDialog($event)"
+               ng-if="userpage.isMyPage()">
         Создать проект
+    </md-button>
+
+    <md-button class="md-primary md-raised" ui-sref="searchpage">
+        Поиск
     </md-button>
 
     <div class="projects-container">
@@ -17,6 +23,4 @@
             </div>
         </div>
     </div>
-
-
 </div>

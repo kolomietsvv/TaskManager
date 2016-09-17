@@ -164,6 +164,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -175,7 +177,9 @@
     <Compile Include="Models\MyRoleProvider.cs" />
     <Compile Include="Models\ProjectModel.cs" />
     <Compile Include="Models\RegistrationModel.cs" />
+    <Compile Include="Models\SubTaskModel.cs" />
     <Compile Include="Models\TaskModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1024,6 +1028,8 @@
     <Content Include="Scripts\app\controllers\home.ctrl.js" />
     <Content Include="Scripts\app\controllers\login.ctrl.js" />
     <Content Include="Scripts\app\controllers\registration.ctrl.js" />
+    <Content Include="Scripts\app\controllers\search.ctrl.js" />
+    <Content Include="Scripts\app\controllers\task.ctrl.js" />
     <Content Include="Scripts\app\controllers\user.ctrl.js" />
     <Content Include="Scripts\app\run\checkAuth.js" />
     <Content Include="Scripts\app\run\loginRequired.js" />
@@ -1034,11 +1040,14 @@
     <Content Include="Scripts\templates.js" />
     <Content Include="Styles\css\allStyles.css" />
     <Content Include="templates\AddProjectPage.html" />
+    <Content Include="templates\AddSubtaskPage.html" />
     <Content Include="templates\AddTaskPage.html" />
     <Content Include="templates\Home.html" />
     <Content Include="templates\LoginPage.html" />
     <Content Include="templates\ProjectPage.html" />
     <Content Include="templates\RegistrationPage.html" />
+    <Content Include="templates\SearchPage.html" />
+    <Content Include="templates\TaskPage.html" />
     <Content Include="templates\UserPage.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

@@ -11,7 +11,6 @@ App.run(['$http', 'userData', 'userLoaded', function ($http, userData, userLoade
         angular.copy(data, userData);//Складываем данные из объекта дата в объект юзерДата(не ломая ссылку на объект юзерДата) п.с. на стадии ран
         console.dir(userData);
         userLoaded.deferred().resolve();
-
     }, function () {
 
     });

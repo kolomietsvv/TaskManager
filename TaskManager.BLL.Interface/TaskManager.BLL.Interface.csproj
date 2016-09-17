@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="IProjectLogic.cs" />
     <Compile Include="IUserLogic.cs" />
+    <Compile Include="ITaskLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

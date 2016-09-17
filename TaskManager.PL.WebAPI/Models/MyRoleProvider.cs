@@ -15,20 +15,6 @@ namespace TaskManager.PL.WebAPI.Models
         public override string[] GetRolesForUser(string username)
         {
             return AccountModel.Get(username).Roles.ToArray();
-            //var roles = new List<string>();
-            //if(AccountModel.Get(username).Roles.Contains("User"))
-            //{
-            //    roles.Add("User");
-            //}
-            //if (AccountModel.Get(username).Roles.Contains("Admin"))
-            //{
-            //    roles.Add("Admin");
-            //}
-            //if (AccountModel.Get(username).Roles.Contains("Manager"))
-            //{
-            //    roles.Add("Manager");
-            //}
-            //return roles.ToArray();
         }
         #region MyRegion
         public override void CreateRole(string roleName)

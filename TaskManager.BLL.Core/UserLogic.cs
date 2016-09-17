@@ -37,9 +37,14 @@ namespace TaskManager.BLL.Core
         {
             userDAO.AddProject(userLogin, projectName, summary);
         }
-        public List<Project> GetAllProjects(string userLogin) 
+        public IEnumerable<Project> GetAllProjects(string userLogin) 
         {
            return  userDAO.GetAllProjects(userLogin);
         }
+        public IEnumerable<User> GetAllLike(User request)
+        {
+            return userDAO.GetAllLike(request);
+        }
+
     }
 }

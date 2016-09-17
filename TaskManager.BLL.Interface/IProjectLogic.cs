@@ -9,7 +9,10 @@ namespace TaskManager.BLL.Interface
 {
     public interface IProjectLogic
     {
-        List<ProjectTask> GetAllTasks(Guid projectId);
+        IEnumerable<User> GetAllContributors(string projectId);
+        Project GetProject(string Id);
+        IEnumerable<ProjectTask> GetAllTasks(Guid projectId);
         void AddTask(Guid projectId, string name, string summary, DateTime deadline);
+        IEnumerable<Project> GetAllLike(Project request);
     }
 }

@@ -67,10 +67,10 @@ namespace TaskManager.DAL.MSSQL
 
                     user.FirstName = reader["firstName"] as string;
                     user.LastName = reader["lastName"] as string;
-                    
-                    try{user.DateOfBirth = (DateTime)reader["dateOfBirth"];}
-                    catch {;}
-                    
+
+                    try { user.DateOfBirth = (DateTime)reader["dateOfBirth"]; }
+                    catch {; }
+
                     user.CompanyName = reader["companyName"] as string;
                     user.Qualification = reader["qualification"] as string;
                     user.ExtraInf = reader["extraInf"] as string;
@@ -93,9 +93,9 @@ namespace TaskManager.DAL.MSSQL
             }
         }
 
-        public List<Project> GetAllProjects(string loginName)
+        public IEnumerable<Project> GetAllProjects(string loginName)
         {
-            var projects= new List<Project>();
+            var projects = new List<Project>();
             using (var connection = new SqlConnection(_connectionString))
             {
                 var command = new SqlCommand("getAllUserProjects", connection);
@@ -105,17 +105,14 @@ namespace TaskManager.DAL.MSSQL
                 var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    try 
-                    { 
-                        projects.Add(new Project((Guid)reader["projectId"], (string)reader["name"], (string)reader["summary"])); 
-                    }
-                    catch(Exception)
-                    {
-                        projects.Add(new Project((Guid)reader["projectId"],(string)reader["name"]));
-                    }
-                    
+                        yield return new Project()
+                        {
+                            Name = (string)reader["name"],
+                            ProjectId = (Guid)reader["projectId"],
+                            ManagerLogin = loginName,
+                            Summary = reader["summary"] as string
+                        };
                 }
-                return projects;
             }
         }
 
@@ -164,6 +161,39 @@ namespace TaskManager.DAL.MSSQL
                 command.Parameters.Add("@summary", System.Data.SqlDbType.NVarChar).Value = summary;
                 connection.Open();
                 command.ExecuteNonQuery();
+            }
+        }
+
+        public IEnumerable<User> GetAllLike(User request)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var command = new SqlCommand("getAllUsersLike", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@loginName", System.Data.SqlDbType.VarChar).Value = request.LoginName;
+                command.Parameters.Add("@email", System.Data.SqlDbType.VarChar).Value = request.Email;
+                command.Parameters.Add("@firstName", System.Data.SqlDbType.VarChar).Value = request.FirstName;
+                command.Parameters.Add("@lastName", System.Data.SqlDbType.VarChar).Value = request.LastName;
+                command.Parameters.Add("@age", System.Data.SqlDbType.Int).Value = request.Age;
+                command.Parameters.Add("@companyName", System.Data.SqlDbType.VarChar).Value = request.CompanyName;
+                command.Parameters.Add("@qualification", System.Data.SqlDbType.VarChar).Value = request.Qualification;
+                command.Parameters.Add("@extraInf", System.Data.SqlDbType.VarChar).Value = request.ExtraInf;
+                connection.Open();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    yield return new User()
+                    {
+                        LoginName = (string)reader["loginName"],
+                        Email = (string)reader["email"],
+                        FirstName = reader["firstName"] as string,
+                        LastName = reader["lastName"] as string,
+                        //+Age
+                        CompanyName = reader["companyName"] as string,
+                        Qualification = reader["qualification"] as string,
+                        ExtraInf = reader["extraInf"] as string,
+                    };
+                }
             }
         }
     }

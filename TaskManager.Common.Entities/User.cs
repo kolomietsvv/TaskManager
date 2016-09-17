@@ -70,5 +70,21 @@ namespace TaskManager.Common.Entities
         public string Qualification { get; set; }
         public List<Project> Projects { get; set; }
         public string ExtraInf { get; set; }
+        public int Age
+        {
+            get
+            {
+                if (DateOfBirth != new DateTime())
+                {
+                    DateTime now = DateTime.Today;
+                    int age = now.Year - DateOfBirth.Year;
+                    if (now < DateOfBirth.AddYears(age))
+                        age--;
+                    return age;
+                }
+                return 0;
+            }
+            set { Age = value; }
+        }
     }
 }

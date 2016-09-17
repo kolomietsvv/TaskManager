@@ -17,10 +17,15 @@ App.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             }
         })
         .state('userpage', {
-            url: '/userpage',
+            url: '/userpage?login',
             templateUrl: 'UserPage.html',
             controller: 'UserCtrl',
             controllerAs: 'userpage',
+            params: {
+                login: {
+                    value: ''
+                }
+            },
             resolve: {//использовать во всех стейтах, внутри которых нам нужны данные из userData
                 userIsLoaded: ['userLoaded', function (userLoaded) {
                     return userLoaded.deferred().promise;
@@ -71,19 +76,27 @@ App.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
         }
     })
 
-    .state('page1', {
-        url: '/page1',
-        templateUrl: 'Page1.html',
-        data: {
-            access: {
-                roles: ['User', 'Manager', 'Admin']
+        .state('taskpage', {
+            url: '/task?taskId',
+            templateUrl: 'TaskPage.html',
+            controller: 'TaskCtrl',
+            controllerAs: 'taskpage',
+            params: {
+                taskId: {
+                    value: ''
+                }
+            },
+            data: {
+                access: {
+                    roles: ['User', 'Manager', 'Admin']
+                }
             }
-        }
-    })
-
-    .state('page2', {
-        url: '/page2',
-        templateUrl: 'Page2.html',
+        })
+    .state('searchpage', {
+        url: '/search',
+        templateUrl: 'SearchPage.html',
+        controller: 'SearchCtrl',
+        controllerAs: 'searchpage',
         data: {
             access: {
                 roles: ['User', 'Manager', 'Admin']

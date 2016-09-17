@@ -9,12 +9,14 @@ namespace TaskManager.BLL.Interface
 {
     public interface IUserLogic
     {
+       
        IEnumerable<User> GetAll();
        void AddUser(User user);
        User GetUser(string userLogin);
        bool CanLogin(string userLogin, string password);
        void AddRole(string userId, string roleName);
        void AddProject(string userLogin, string projectName, string summary);
-       List<Project> GetAllProjects(string userLogin);
+       IEnumerable<Project> GetAllProjects(string userLogin);
+       IEnumerable<User> GetAllLike(User request);
     }
 }

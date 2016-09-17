@@ -1,0 +1,17 @@
+﻿<div class="task-page">
+    <md-button class="md-primary md-raised" ng-click="taskpage.showAddSubtaskDialog($event)">
+        Добавить подзадачу
+    </md-button>
+
+    <div class="subtasks-container">
+        <div class="subtask-item"
+             ng-repeat="subtask in taskpage.subtasks track by $index">
+            <div class="task-title">
+                {{::subtask.Name}}<!-- ::  <=== it is one time data binding in angularjs-->
+            </div>
+            <div class="task-creationTime">
+                {{::subtask.CreationTime|jsDate| date:'dd:MM:yyyy'}}
+            </div>
+        </div>
+    </div>
+</div>

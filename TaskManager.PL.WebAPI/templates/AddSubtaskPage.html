@@ -1,0 +1,20 @@
+﻿<div class="form-group">
+    <form name="addTaskForm" flex-gt-xs>
+        <md-content md-theme="docs-dark"
+                    layout-padding
+                    class="login-form">
+
+            <md-input-container class="md-block md-input-has-value">
+                <label for="taskName">Опишите подзадачу</label>
+                <input ng-required="true"
+                       name="taskName"
+                       ng-model="subtaskName"
+                       class="ng-pristine md-input ng-invalid ng-invalid-required ng-touched"
+                       id="taskName" />
+            </md-input-container>
+
+        <md-button ng-click="answer({TaskId: locals.taskId, Name: subtaskName, CreationTime: locals.currentDate})">
+            Добавить
+        </md-button>
+    </form>
+</div>

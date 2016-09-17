@@ -3,9 +3,34 @@ App.controller('ProjectCtrl',
     ["$scope", "$http", "$mdDialog", "$state", "userData", "userLoaded", "$stateParams", 
         function ($scope, $http, $mdDialog, $state, userData, userLoaded, $stateParams) {
             var vm = this,
-                projectId = $stateParams.projectId;
-            vm.tasks = [];
+                projectId = $stateParams.projectId,
+                loginName,
+                contributorName,
+                    contributor;
+            vm.tasks = [];         
             init();
+
+            vm.isMyProject = function () {
+                return userData.Login === loginName;
+            };
+
+            vm.ifIContributor = function () {
+                return userData.Login === contributorName;
+            };
+
+            function init() {
+                $http.post('Project/GetProject/', { projectId: projectId })
+                 .then(function (res) {
+                     vm.tasks = res.data.Tasks;
+                     loginName = res.data.Project.ManagerLogin;
+                     contributor = _.find(res.data.Contributors, function (item) {
+                         return item.LoginName === userData.Login;
+                     });
+                     contributorName = contributor && contributor.LoginName;
+                 }, function (res) {
+                     alert("Smth went wrong");
+                 });
+            }
 
             vm.showAddTaskDialog = function (ev) {
                 $mdDialog.show({
@@ -32,15 +57,6 @@ App.controller('ProjectCtrl',
                 });
             };
 
-            function init() {
-                $http.post('Project/GetAllTasks/', { projectId: projectId })
-                 .then(function (res) {
-                     vm.tasks = res.data.Tasks;
-                 }, function (res) {
-                     alert("Smth went wrong");
-                 });
-            }
-
             function DialogController($scope, $mdDialog, locals) {
                 $scope.locals = locals;
                 $scope.hide = function () {
@@ -60,4 +76,4 @@ App.controller('ProjectCtrl',
                 var intDate = json.match(regxp);
                 return new Date(parseInt(intDate));
             };
-        });;
+        });

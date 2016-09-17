@@ -15,7 +15,7 @@ App.controller('LoginCtrl',
                 localStorage.setItem('userData', JSON.stringify(userData));
 
                 userLoaded.deferred().resolve();
-                $state.go("userpage");
+                $state.go("userpage", { login: vm.login });
             }, function (res) {
                 alert("Такой пользователь не зарегистрирован (убедитесь что вы пдтвердили авторизацию по почте и данные введены корректно)");
             });

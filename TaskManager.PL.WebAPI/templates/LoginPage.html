@@ -1,18 +1,15 @@
 ﻿<form novalidate name="loginForm" ng-submit="loginForm.$valid && loginpage.loginGo()">
-    <!--позвали this.loginGo()-->
     <div class="form-group">
         <md-content md-theme="docs-dark"
                     layout-padding
                     class="login-form">
             <md-input-container class="md-block md-input-has-value">
-
                 <label for="login">Логин</label>
-                <input name="login"
+                <input class="login-input"
+                       name="login"
                        ng-model="loginpage.login"
-                       class="ng-pristine md-input ng-invalid ng-invalid-required ng-touched"
                        id="login"
                        ng-required="true" />
-
             </md-input-container>
             <md-input-container class="md-block md-input-has-value">
                 <label for="password">Пароль</label>
@@ -24,7 +21,6 @@
                        ng-required="true" />
             </md-input-container>
         </md-content>
-
         <md-button class="md-raised submit-btn" type="submit">Войти</md-button>
     </div>
 </form>

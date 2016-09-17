@@ -1,10 +1,24 @@
 ﻿'use strict';
 App.controller('UserCtrl',
-    ["$scope", "$http", "$mdDialog", "$state", "userData", "userLoaded", "userIsLoaded",
-        function ($scope, $http, $mdDialog, $state, userData, userLoaded, userIsLoaded) {
-            var vm = this;
+    ["$scope", "$http", "$mdDialog", "$state", "userData", "userLoaded", "userIsLoaded", "$stateParams",
+        function ($scope, $http, $mdDialog, $state, userData, userLoaded, userIsLoaded, $stateParams) {
+            var vm = this,
+                loginName = $stateParams.login;
             vm.projects = [];
             init();
+            vm.isMyPage = function () {
+                return userData.Login === loginName;
+            };
+
+
+            function init() {
+                $http.post('User/GetAllProjects/', { loginName: loginName })
+                 .then(function (res) {
+                     vm.projects = res.data.Projects;
+                 }, function (res) {
+                     alert("Smth went wrong");
+                 });
+            }
 
             vm.showAddProjectDialog = function (ev) {
                 $mdDialog.show({
@@ -37,15 +51,6 @@ App.controller('UserCtrl',
                      alert("Smth went wrong");
                  });
             };
-
-            function init() {
-                $http.post('User/GetAllProjects/', { loginName: userData.Login })
-                 .then(function (res) {
-                     vm.projects = res.data.Projects;
-                 }, function (res) {
-                     alert("Smth went wrong");
-                 });
-            }
 
             function DialogController($scope, $mdDialog) {
                 $scope.hide = function () {

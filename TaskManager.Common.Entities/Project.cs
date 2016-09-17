@@ -18,7 +18,6 @@ namespace TaskManager.Common.Entities
             Name = name;
             Summary = summary;
         }
-
         public Project(Guid id, string name)
         {
             ProjectId = id;
@@ -28,5 +27,6 @@ namespace TaskManager.Common.Entities
        public Guid ProjectId{get;set;}
        public string Name { get; set; }
        public string Summary { get; set; }
+       public string ManagerLogin { get; set; }
     }
 }
