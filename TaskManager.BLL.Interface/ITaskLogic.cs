@@ -9,7 +9,7 @@ namespace TaskManager.BLL.Interface
 {
     public interface ITaskLogic
     {
-        IEnumerable<SubTask> GetAllSubTasks(Guid taskId);
-        void AddSubTask(Guid taskId, string name, DateTime creationTime);
+        IEnumerable<Subtask> GetAllSubtasks(Guid taskId);
+        void AddSubtask(Guid taskId, string name, DateTime creationTime);
     }
 }

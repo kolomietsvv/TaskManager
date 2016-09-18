@@ -32,5 +32,16 @@ namespace TaskManager.PL.WebAPI.Controllers
             return new HttpStatusCodeResult(403, "Invalid Form");
         }
 
+        [Authorize(Roles = "User")]
+        public ActionResult InviteContributor(Guid projectId, string userLogin)
+        {
+            if (ModelState.IsValid)
+            {
+                ProjectModel.AddContributor(projectId, userLogin);
+                return Json(new { loginName = userLogin });
+            }
+            return new HttpStatusCodeResult(403, "Invalid Form");
+        }
+
     }
 }

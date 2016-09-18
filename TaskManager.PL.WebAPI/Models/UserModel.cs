@@ -33,6 +33,21 @@ namespace TaskManager.PL.WebAPI.Models
             set { Age = value; }  
         }
 
+        public static void AddRole(string loginName, string roleName)
+        {
+            ContainerLogic.userLogic.AddRole(loginName, roleName);
+        }
+
+        public static void DeletRole(string loginName, string roleName)
+        {
+            ContainerLogic.userLogic.DeleteRole(loginName, roleName);
+        }
+
+        static public User GetUser(string loginName)
+        {
+            return ContainerLogic.userLogic.GetUser(loginName);
+        }
+
         static public List<UserModel> GetAllLike(UserModel request)
         {
             return ContainerLogic.userLogic.GetAllLike(new User()

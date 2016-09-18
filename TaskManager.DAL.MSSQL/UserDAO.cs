@@ -105,13 +105,13 @@ namespace TaskManager.DAL.MSSQL
                 var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                        yield return new Project()
-                        {
-                            Name = (string)reader["name"],
-                            ProjectId = (Guid)reader["projectId"],
-                            ManagerLogin = loginName,
-                            Summary = reader["summary"] as string
-                        };
+                    yield return new Project()
+                    {
+                        Name = (string)reader["name"],
+                        ProjectId = (Guid)reader["projectId"],
+                        ManagerLogin = (string)reader["managerLogin"],
+                        Summary = reader["summary"] as string
+                    };
                 }
             }
         }
@@ -129,24 +129,16 @@ namespace TaskManager.DAL.MSSQL
             }
         }
 
-        public bool AddRole(string userId, string roleName)
+        public void AddRole(string userId, string roleName)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 var command = new SqlCommand("createRole", connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("@userId", System.Data.SqlDbType.VarChar).Value = userId;
+                command.Parameters.Add("@userLogin", System.Data.SqlDbType.VarChar).Value = userId;
                 command.Parameters.Add("@roleName", System.Data.SqlDbType.VarChar).Value = roleName;
                 connection.Open();
-                try
-                {
-                    command.ExecuteNonQuery();
-                    return true;
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
+                command.ExecuteNonQuery();
             }
         }
 
@@ -194,6 +186,19 @@ namespace TaskManager.DAL.MSSQL
                         ExtraInf = reader["extraInf"] as string,
                     };
                 }
+            }
+        }
+
+        public void DeleteRole(string userId, string roleName)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var command = new SqlCommand("deleteRole", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@userLogin", System.Data.SqlDbType.VarChar).Value = userId;
+                command.Parameters.Add("@roleName", System.Data.SqlDbType.VarChar).Value = roleName;
+                connection.Open();
+                command.ExecuteNonQuery();
             }
         }
     }

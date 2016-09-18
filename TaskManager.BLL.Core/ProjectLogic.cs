@@ -32,5 +32,9 @@ namespace TaskManager.BLL.Core
         {
             return projectDAO.GetAllContributors(projectId);
         }
+        public void AddContributor(Guid projectId, string loginName)
+        {
+            projectDAO.AddContributor(projectId, loginName);
+        }
     }
 }

@@ -8,10 +8,9 @@ App.controller('HomeCtrl',
             $http.post('Home/Authenticate/', {login:vm.login, password:vm.password})
             .then(function (res) {
                 var data = res.data;
-                console.dir(data);
             }, function (res) {
-                console.dir(arguments);
                 var data = res.data;
+                console.dir(data);
             });
         };
         vm.check = function () {

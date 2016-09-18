@@ -7,11 +7,48 @@
         <div class="subtask-item"
              ng-repeat="subtask in taskpage.subtasks track by $index">
             <div class="task-title">
-                {{::subtask.Name}}<!-- ::  <=== it is one time data binding in angularjs-->
+                {{::subtask.Name}}
+            </div>
+            <div class="task-title">
+                {{::subtask.DoneBy}}<!-- ::  <=== it is one time data binding in angularjs-->
             </div>
             <div class="task-creationTime">
                 {{::subtask.CreationTime|jsDate| date:'dd:MM:yyyy'}}
             </div>
+            <div class="task-creationTime" ng-if="subtask.CompletionTime">
+                {{::subtask.CompletionTime|jsDate| date:'dd:MM:yyyy'}}
+            </div>
+            <input ng-model="searchpage.firstName"
+                   type="hidden"
+                   value="{{::subtask.SubtaskId}}" />
+
+            <div ng-if="subtask.CompletionTime===null">
+                <md-button class="md-primary md-raised"
+                           ng-if="subtask.DoneBy===null"
+                           ng-click="subtask.DoneBy='notnull';
+                       taskpage.subtaskId=subtask.SubtaskId;
+                       taskpage.tryToDo()">
+                    Выполнено
+                </md-button>
+                
+                <div ng-if="subtask.DoneBy!=null">
+                    <md-button class="md-primary md-raised"
+                               ng-click="subtask.DoneBy='notnull';
+                           taskpage.subtaskId=subtask.SubtaskId;
+                           taskpage.confirmCompletion();
+                           subtask.CompletionTime='notnull'">
+                        Подтвердить выполнение
+                    </md-button>
+                    <md-button class="md-primary md-raised"
+                               ng-click="subtask.DoneBy=null;
+                           taskpage.subtaskId=subtask.SubtaskId;
+                           taskpage.rejectCompletion()">
+                        Отклонить выполнение
+                    </md-button>
+                </div>
+                
+            </div>
+
         </div>
     </div>
 </div>

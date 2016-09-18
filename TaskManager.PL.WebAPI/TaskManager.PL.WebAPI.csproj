@@ -162,6 +162,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -1024,6 +1025,7 @@
     <Content Include="Images\background.jpg" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\config.js" />
+    <Content Include="Scripts\app\controllers\admin.ctrl.js" />
     <Content Include="Scripts\app\controllers\confirmRegistration.ctrl.js" />
     <Content Include="Scripts\app\controllers\home.ctrl.js" />
     <Content Include="Scripts\app\controllers\login.ctrl.js" />
@@ -1039,10 +1041,13 @@
     <Content Include="Scripts\app\values\userData.value.js" />
     <Content Include="Scripts\templates.js" />
     <Content Include="Styles\css\allStyles.css" />
+    <Content Include="templates\AddContributorsDialog.html" />
     <Content Include="templates\AddProjectPage.html" />
     <Content Include="templates\AddSubtaskPage.html" />
     <Content Include="templates\AddTaskPage.html" />
+    <Content Include="templates\AdminPage.html" />
     <Content Include="templates\Home.html" />
+    <Content Include="templates\InviteContributors.html" />
     <Content Include="templates\LoginPage.html" />
     <Content Include="templates\ProjectPage.html" />
     <Content Include="templates\RegistrationPage.html" />

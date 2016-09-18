@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IProjectLogic.cs" />
+    <Compile Include="ISubtaskLogic.cs" />
     <Compile Include="IUserLogic.cs" />
     <Compile Include="ITaskLogic.cs" />
   </ItemGroup>

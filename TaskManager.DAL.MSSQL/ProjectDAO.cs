@@ -1,11 +1,6 @@
 ﻿using TaskManager.Common.Entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
-using System.Threading.Tasks;
-using TaskManager.DAL.MSSQL;
 using TaskManager.DAL.Interface;
 using System.Data;
 using System.Configuration;
@@ -44,6 +39,7 @@ namespace TaskManager.DAL.MSSQL
                 return tasks;
             }
         }
+
         public void AddTask(Guid projectId, string name, string summary, DateTime deadline)
         {
             using (var connection = new SqlConnection(_connectionString))
@@ -111,5 +107,17 @@ namespace TaskManager.DAL.MSSQL
             }
         }
 
+        public void AddContributor(Guid projectId, string loginName)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var command = new SqlCommand("addContributor", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@projectId", SqlDbType.VarChar).Value = projectId.ToString();
+                command.Parameters.Add("@loginName", SqlDbType.VarChar).Value = loginName;
+                connection.Open();
+                command.ExecuteNonQuery();              
+            }
+        }
     }
 }

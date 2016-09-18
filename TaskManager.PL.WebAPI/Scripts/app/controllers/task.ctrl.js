@@ -5,19 +5,48 @@ App.controller('TaskCtrl',
             var vm = this,
                 taskId = $stateParams.taskId;
             vm.subtasks = [];
-            vm.ifIContributor() = function () {
-
-            }
+            vm.subtaskId;
             init();
-
-            
 
             function init() {
                 $http.post('Task/GetAllSubtasks/', { taskId: taskId })
                  .then(function (res) {
-                     vm.subtasks = res.data.SubTasks;
+                     vm.subtasks = res.data.Subtasks;
                  }, function (res) {
-                     alert("Smth went wrong");
+                     console.dir(res.data);
+                 });
+            }
+
+            vm.confirmCompletion = function () {
+                $http.post('Task/ConfirmCompletion/', { subtaskId: vm.subtaskId })
+                     .then(function (res) {
+
+                     }, function (res) {
+                         console.dir(res.data);
+                     });
+            }
+
+            vm.rejectCompletion = function () {
+                $http.post('Task/RejectCompletion/', { subtaskId: vm.subtaskId })
+                .then(function (res) {
+                }, function (res) {
+                    console.dir(res.data);
+                });
+            }
+
+            vm.tryToDo = function (subtaskId) {
+                $http.post('Task/tryToDo/', { subtaskId: vm.subtaskId, userLogin: userData.Login })
+                 .then(function (res) {
+                }, function (res) {
+                    console.dir(res.data);
+                });
+            }
+
+            vm.tryToDo = function (subtaskId) {
+                $http.post('Task/tryToDo/', { subtaskId: vm.subtaskId, userLogin: userData.Login })
+                 .then(function (res) {
+                 }, function (res) {
+                     console.dir(res.data);
                  });
             }
 
@@ -34,12 +63,12 @@ App.controller('TaskCtrl',
                     clickOutsideToClose: true
                 })
                 .then(function (answer) {
-                    $http.post('Task/AddSubTask/', answer)
+                    $http.post('Task/AddSubtask/', answer)
                  .then(function (res) {
                      var data = res.data;
                      vm.subtasks.push(data);
                  }, function (res) {
-                     alert("Smth went wrong");
+                     console.dir(res.data);
                  });
                 }, function () {
                     $scope.status = 'You cancelled the dialog.';

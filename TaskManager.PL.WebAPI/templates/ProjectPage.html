@@ -1,11 +1,11 @@
 ﻿<div class="project-page">
     <md-button class="md-primary md-raised"
                ng-if="projectpage.ifIContributor()"
-                ng-click="projectpage.showAddTaskDialog($event)">
+               ng-click="projectpage.showAddTaskDialog($event)">
         Добавить задачу
     </md-button>
     <md-button class="md-primary md-raised"
-               ng-click="projectpage.addContributor($event)"
+               ng-click="projectpage.showInviteContributorDialog($event)"
                ng-if="projectpage.isMyProject()">
         Пригласить участников
     </md-button>

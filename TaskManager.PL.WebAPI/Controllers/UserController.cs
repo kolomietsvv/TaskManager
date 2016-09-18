@@ -9,6 +9,14 @@ namespace TaskManager.PL.WebAPI.Controllers
 {
     public class UserController : Controller
     {
+
+        [HttpPost]
+        [Authorize(Roles = "User")]
+        public ActionResult GetUser(string loginName)
+        {          
+           return Json(new { User = UserModel.GetUser(loginName)});
+        }
+
         [HttpPost]
         [Authorize(Roles = "User")]
         public ActionResult AddProject(ProjectModel model)

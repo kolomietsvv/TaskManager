@@ -12,11 +12,13 @@ namespace TaskManager.PL.WebAPI.Models
         public static IUserLogic userLogic;
         public static IProjectLogic projectLogic;
         public static ITaskLogic taskLogic;
+        public static ISubtaskLogic subtaskLogic;
         static ContainerLogic()
         {
             userLogic = new UserLogic();
             projectLogic = new ProjectLogic();
             taskLogic = new TaskLogic();
+            subtaskLogic = new SubtaskLogic();
         }
     }
 }

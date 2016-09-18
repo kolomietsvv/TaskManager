@@ -30,7 +30,7 @@ App.controller('SearchCtrl',
                  .then(function (res) {
                      vm.users = res.data.Users;
                  }, function (res) {
-                     alert("Smth went wrong");
+                     console.dir(res.data);
                  });
             }
 
@@ -39,7 +39,7 @@ App.controller('SearchCtrl',
                 .then(function (res) {
                     vm.projects = res.data.Projects;
                 }, function (res) {
-                    alert('Smth went wrong');
+                    console.dir(res.data);
                 });
             }
         }]);

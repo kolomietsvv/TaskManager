@@ -65,5 +65,9 @@ namespace TaskManager.PL.WebAPI.Models
             })
             .ToList();
         }
+        static public void AddContributor(Guid projectId, string userLogin)
+        {
+            ContainerLogic.projectLogic.AddContributor(projectId, userLogin);
+        }
     }
 }

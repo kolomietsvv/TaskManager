@@ -18,5 +18,6 @@ namespace TaskManager.BLL.Interface
        void AddProject(string userLogin, string projectName, string summary);
        IEnumerable<Project> GetAllProjects(string userLogin);
        IEnumerable<User> GetAllLike(User request);
+       void DeleteRole(string loginName, string roleName);
     }
 }

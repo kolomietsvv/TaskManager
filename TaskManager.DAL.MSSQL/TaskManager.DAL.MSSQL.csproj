@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ProjectDAO.cs" />
+    <Compile Include="SubtaskDAO.cs" />
     <Compile Include="TaskDAO.cs" />
     <Compile Include="UserDAO.cs" />
   </ItemGroup>

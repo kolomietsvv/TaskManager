@@ -13,11 +13,13 @@ namespace TaskManager.BLL.Core
         public static IUserDAO userDAO;
         public static IProjectDAO projectDAO;
         public static ITaskDAO taskDAO;
+        public static ISubtaskDAO subtaskDAO;
         static ContainerDAO()
         {
             userDAO = new UserDAO();
             projectDAO = new ProjectDAO();
             taskDAO = new TaskDAO();
+            subtaskDAO = new SubtaskDAO();
         }
     }
 }

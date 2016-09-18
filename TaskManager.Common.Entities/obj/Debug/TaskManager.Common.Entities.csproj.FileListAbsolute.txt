@@ -1,6 +1,6 @@
 D:\TaskManager\TaskManager.Common.Entities\bin\Debug\TaskManager.Common.Entities.dll.config
 D:\TaskManager\TaskManager.Common.Entities\bin\Debug\TaskManager.Common.Entities.dll
 D:\TaskManager\TaskManager.Common.Entities\bin\Debug\TaskManager.Common.Entities.pdb
-D:\TaskManager\TaskManager.Common.Entities\obj\Debug\TaskManager.Common.Entities.csprojResolveAssemblyReference.cache
 D:\TaskManager\TaskManager.Common.Entities\obj\Debug\TaskManager.Common.Entities.dll
 D:\TaskManager\TaskManager.Common.Entities\obj\Debug\TaskManager.Common.Entities.pdb
+D:\TaskManager\TaskManager.Common.Entities\obj\Debug\TaskManager.Common.Entities.csprojResolveAssemblyReference.cache

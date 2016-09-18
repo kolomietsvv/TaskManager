@@ -14,49 +14,39 @@ namespace TaskManager.DAL.MSSQL
     public class TaskDAO : ITaskDAO
     {
         private string _connectionString = ConfigurationManager.ConnectionStrings["mssql"].ConnectionString;
-        public IEnumerable<SubTask> GetAllSubTasks(Guid taskId)
+        public IEnumerable<Subtask> GetAllSubtasks(Guid taskId)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                var subTasks = new List<SubTask>();
-                var command = new SqlCommand("getAllSubTasks", connection);
+                var subtasks = new List<Subtask>();
+                var command = new SqlCommand("getAllSubtasks", connection);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add("@taskId", SqlDbType.VarChar).Value = taskId.ToString();
                 connection.Open();
                 var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    try
+                    yield return new Subtask()
                     {
-                        subTasks.Add(new SubTask
-                        {
-                            SubtaskId = (Guid)reader["subtaskId"],
-                            Name = (string)reader["name"],
-                            CreationTime = (DateTime)reader["creationTime"],
-                            CompletionTime = (DateTime)reader["completionTime"]
-                        });
-                    }
-                    catch (Exception)
-                    {
-                        subTasks.Add(new SubTask
-                        {
-                            SubtaskId = (Guid)reader["subtaskId"],
-                            Name = (string)reader["name"],
-                            CreationTime = (DateTime)reader["creationTime"]
-                        });
-                    }
+                        DoneBy= reader["doneBy"] as string,
+                        TaskId = (Guid)reader["taskId"],
+                        SubtaskId = (Guid)reader["subtaskId"],
+                        Name = (string)reader["name"],
+                        CreationTime = (DateTime)reader["creationTime"],
+                        CompletionTime = reader["completionTime"] as DateTime?,//nullable type
+                        ProjectId= (Guid)reader["projectId"]
+                    };
                 }
-                return subTasks;
             }
         }
 
-        public void AddSubTask(Guid taskId, string name, DateTime creationTime)
+        public void AddSubtask(Guid taskId, string name, DateTime creationTime)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                var command = new SqlCommand("addSubTask", connection);
+                var command = new SqlCommand("addSubtask", connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("@subTaskName", SqlDbType.NVarChar).Value = name;
+                command.Parameters.Add("@subtaskName", SqlDbType.NVarChar).Value = name;
                 command.Parameters.Add("@taskId", SqlDbType.VarChar).Value = taskId.ToString();
                 command.Parameters.Add("@creationTime", SqlDbType.DateTime2).Value = creationTime;
                 connection.Open();

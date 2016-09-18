@@ -1,0 +1,45 @@
+﻿<div>
+    <md-input-container class="md-block md-input-has-value">
+        <label for="loginName">Логин</label>
+        <input ng-required="true"
+               name="loginName"
+               ng-model="adminpage.loginName"
+               class="ng-pristine md-input ng-invalid ng-invalid-required ng-touched"
+               id="loginName" />
+    </md-input-container>
+
+    <md-button class="md-primary md-raised"
+               ng-click="adminpage.getUser()">
+       Изменить роли
+    </md-button>
+
+    <div class="user-info" ng-if="adminpage.user!=null">
+        <div class="login">{{adminpage.user.LoginName}}</div>
+        <div class="email">{{adminpage.user.Email}}</div>
+        <div ng-if="user.LastName!=null" class="lastName">{{adminpage.user.LastName}}</div>
+        <div ng-if="user.FirstName!=null" class="firstName">{{adminpage.user.FirstName}}</div>
+        <div ng-if="user.Age!=0" class="age">{{adminpage.user.Age}}</div>
+        <div ng-if="user.CompanyName!=null" class="companyName">{{adminpage.user.CompanyName}}</div>
+        <div ng-if="user.Qualification!=null" class="qualification">{{adminpage.user.Qualification}}</div>
+        <div ng-if="user.ExtraInf!=null" class="extraInf">{{adminpage.user.ExtraInf}}</div>
+        <div class="role" ng-repeat="role in adminpage.user.Roles track by $index">
+            {{::role}}
+        </div>
+
+        <md-select ng-model="adminpage.role">
+            <md-option ng-repeat="role in adminpage.allRoles" value="{{role}}">{{role}}</md-option>
+        </md-select>
+        <md-button class="md-primary md-raised"
+                   ng-click="adminpage.addRole()">
+            Добавить роль
+        </md-button>
+
+        <md-select ng-model="adminpage.role">
+            <md-option ng-repeat="role in adminpage.user.Roles" value="{{role}}">{{role}}</md-option>
+        </md-select>
+        <md-button class="md-primary md-raised"
+                   ng-click="adminpage.deleteRole()">
+            Удалить роль
+        </md-button>
+    </div>
+</div>

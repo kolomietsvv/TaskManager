@@ -16,38 +16,38 @@ App.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
                 }
             }
         })
-        .state('userpage', {
-            url: '/userpage?login',
-            templateUrl: 'UserPage.html',
-            controller: 'UserCtrl',
-            controllerAs: 'userpage',
-            params: {
-                login: {
-                    value: ''
-                }
-            },
-            resolve: {//использовать во всех стейтах, внутри которых нам нужны данные из userData
-                userIsLoaded: ['userLoaded', function (userLoaded) {
-                    return userLoaded.deferred().promise;
-                }]
-            },
-            data: {
+         .state('userpage', {
+             url: '/userpage?login',
+             templateUrl: 'UserPage.html',
+             controller: 'UserCtrl',
+             controllerAs: 'userpage',
+             params: {
+                 login: {
+                     value: ''
+                 }
+             },
+             resolve: {//использовать во всех стейтах, внутри которых нам нужны данные из userData
+                 userIsLoaded: ['userLoaded', function (userLoaded) {
+                     return userLoaded.deferred().promise;
+                 }]
+             },
+             data: {
+                 access: {
+                     roles: ['User', 'Manager', 'Admin']
+                 }
+             }
+         })
+        .state('loginpage', {/*это важно*/
+            url: '/loginpage',
+            templateUrl: 'LoginPage.html',/*Имя вьюшки*/
+            controller: 'LoginCtrl',/*Это имя ангуляр контроллера (*.ctrl.js)*/
+            controllerAs: 'loginpage'/*на вьюшке спрашиваем это (это же this  в контроллере js)*/,
+            data: {// сюда дозволено ходить всем
                 access: {
-                    roles: ['User', 'Manager', 'Admin']
+                    roles: []
                 }
             }
         })
-       .state('loginpage', {/*это важно*/
-           url: '/loginpage',
-           templateUrl: 'LoginPage.html',/*Имя вьюшки*/
-           controller: 'LoginCtrl',/*Это имя ангуляр контроллера (*.ctrl.js)*/
-           controllerAs: 'loginpage'/*на вьюшке спрашиваем это (это же this  в контроллере js)*/,
-           data: {// сюда дозволено ходить всем
-               access: {
-                   roles: []
-               }
-           }
-       })
         .state('registrationpage', {
             url: '/registrationpage',
             templateUrl: 'RegistrationPage.html',
@@ -59,23 +59,22 @@ App.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
                 }
             }
         })
-    .state('projectpage', {
-        url: '/project?projectId',
-        templateUrl: 'ProjectPage.html',
-        controller: 'ProjectCtrl',
-        controllerAs: 'projectpage',
-        params: {
-            projectId: {
-                value: ''
+        .state('projectpage', {
+            url: '/project?projectId',
+            templateUrl: 'ProjectPage.html',
+            controller: 'ProjectCtrl',
+            controllerAs: 'projectpage',
+            params: {
+                projectId: {
+                    value: ''
+                }
+            },
+            data: {
+                access: {
+                    roles: ['User', 'Manager', 'Admin']
+                }
             }
-        },
-        data: {
-            access: {
-                roles: ['User', 'Manager', 'Admin']
-            }
-        }
-    })
-
+        })
         .state('taskpage', {
             url: '/task?taskId',
             templateUrl: 'TaskPage.html',
@@ -92,15 +91,26 @@ App.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
                 }
             }
         })
-    .state('searchpage', {
-        url: '/search',
-        templateUrl: 'SearchPage.html',
-        controller: 'SearchCtrl',
-        controllerAs: 'searchpage',
-        data: {
-            access: {
-                roles: ['User', 'Manager', 'Admin']
+        .state('searchpage', {
+            url: '/search',
+            templateUrl: 'SearchPage.html',
+            controller: 'SearchCtrl',
+            controllerAs: 'searchpage',
+            data: {
+                access: {
+                    roles: ['User', 'Manager', 'Admin']
+                }
             }
-        }
-    });
+        })
+        .state('adminpage', {
+            url: '/admin',
+            templateUrl: 'AdminPage.html',
+            controller: 'AdminCtrl',
+            controllerAs: 'adminpage',
+            data: {
+                access: {
+                    roles: ['Manager', 'Admin']
+                }
+            }
+        });
 }]);

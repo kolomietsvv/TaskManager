@@ -6,8 +6,9 @@ App.controller('ProjectCtrl',
                 projectId = $stateParams.projectId,
                 loginName,
                 contributorName,
-                    contributor;
-            vm.tasks = [];         
+                    contributor;//Возможно теперь можно просто получать из GetProjects
+            vm.tasks = [];
+            vm.subtaskId;
             init();
 
             vm.isMyProject = function () {
@@ -28,7 +29,7 @@ App.controller('ProjectCtrl',
                      });
                      contributorName = contributor && contributor.LoginName;
                  }, function (res) {
-                     alert("Smth went wrong");
+                     console.dir(res.data);
                  });
             }
 
@@ -50,7 +51,31 @@ App.controller('ProjectCtrl',
                      var data = res.data;
                      vm.tasks.push(data);
                  }, function (res) {
-                     alert("Smth went wrong");
+                     console.dir(res.data);
+                 });
+                }, function () {
+                    $scope.status = 'You cancelled the dialog.';
+                });
+            };
+
+            vm.showInviteContributorDialog = function (ev) {
+                $mdDialog.show({
+                    controller: 'SearchCtrl',
+                    templateUrl: 'AddContributorsDialog.html',
+                    locals: {
+                        projectId: projectId
+                    },
+                    parent: angular.element(document.body),
+                    targetEvent: ev,
+                    clickOutsideToClose: true
+                })
+                .then(function (answer) {
+                    $http.post('Project/InviteContributor/', answer)
+                 .then(function (res) {
+                     var data = res.data;
+                     vm.tasks.push(data);
+                 }, function (res) {
+                     console.dir(res.data);
                  });
                 }, function () {
                     $scope.status = 'You cancelled the dialog.';

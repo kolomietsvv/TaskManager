@@ -45,6 +45,9 @@ namespace TaskManager.BLL.Core
         {
             return userDAO.GetAllLike(request);
         }
-
+        public void DeleteRole(string loginName, string roleName)
+        {
+            userDAO.DeleteRole(loginName, roleName);
+        }
     }
 }

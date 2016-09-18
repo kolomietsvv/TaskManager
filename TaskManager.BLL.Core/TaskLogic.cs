@@ -13,14 +13,14 @@ namespace TaskManager.BLL.Core
     {
         static ITaskDAO taskDAO = ContainerDAO.taskDAO;
 
-        public IEnumerable<SubTask> GetAllSubTasks(Guid taskId)
+        public IEnumerable<Subtask> GetAllSubtasks(Guid taskId)
         {
-            return taskDAO.GetAllSubTasks(taskId);
+            return taskDAO.GetAllSubtasks(taskId);
         }
 
-        public void AddSubTask(Guid taskId, string name, DateTime creationTime)
+        public void AddSubtask(Guid taskId, string name, DateTime creationTime)
         {
-            taskDAO.AddSubTask(taskId, name, creationTime);
+            taskDAO.AddSubtask(taskId, name, creationTime);
         }
     }
 }

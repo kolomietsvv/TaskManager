@@ -22,7 +22,7 @@ App.controller('RegistrationCtrl',
              .then(function (res) {
                  $state.go("home");
              }, function (res) {
-                 alert("Smth went wrong");
+                 console.dir(res.data);
              });
 
         };

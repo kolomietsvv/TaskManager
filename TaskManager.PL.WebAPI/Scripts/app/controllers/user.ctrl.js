@@ -16,7 +16,7 @@ App.controller('UserCtrl',
                  .then(function (res) {
                      vm.projects = res.data.Projects;
                  }, function (res) {
-                     alert("Smth went wrong");
+                     console.dir(res.data);
                  });
             }
 
@@ -34,7 +34,7 @@ App.controller('UserCtrl',
                      var data = res.data;
                      vm.projects.push(data);
                  }, function (res) {
-                     alert("Smth went wrong");
+                     console.dir(res.data);
                  });
                 }, function () {
                     $scope.status = 'You cancelled the dialog.';
@@ -48,7 +48,7 @@ App.controller('UserCtrl',
                      angular.copy({}, userData);
                      $state.go("home");
                  }, function (res) {
-                     alert("Smth went wrong");
+                     console.dir(res.data);
                  });
             };
 
