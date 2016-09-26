@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,11 +8,14 @@ namespace TaskManager.PL.WebAPI.Models
 {
     public class TaskModel
     {
+        [Required]
         public Guid ProjectId { get; set; }
         public Guid TaskId { get; set; }
+        [Required]
         public string Name { get; set; }
         public string Summary { get; set; }
-        public DateTime Deadline { get; set; }
+        [Required]
+        public DateTime? Deadline { get; set; }
         public DateTime CreationTime { get; set; }
 
         static public List<TaskModel> GetAllTasks(Guid projectId)
@@ -27,7 +31,7 @@ namespace TaskManager.PL.WebAPI.Models
             })
             .ToList();
         }
-        static public void AddTask(Guid projectId, string name, string summary, DateTime deadline)
+        static public void AddTask(Guid projectId, string name, string summary, DateTime? deadline)
         {
             ContainerLogic.projectLogic.AddTask(projectId, name, summary, deadline);
         }

@@ -1,15 +1,16 @@
 ﻿<div class="project-page">
-    <md-button class="md-primary md-raised"
-               ng-if="projectpage.ifIContributor()"
-               ng-click="projectpage.showAddTaskDialog($event)">
-        Добавить задачу
-    </md-button>
-    <md-button class="md-primary md-raised"
-               ng-click="projectpage.showInviteContributorDialog($event)"
-               ng-if="projectpage.isMyProject()">
-        Пригласить участников
-    </md-button>
-
+    <div class="menu-bar">
+        <md-button class="md-primary md-raised"
+                   ng-if="projectpage.ifIContributor()"
+                   ng-click="projectpage.showAddTaskDialog($event)">
+            Добавить задачу
+        </md-button>
+        <md-button class="md-primary md-raised"
+                   ng-click="projectpage.showInviteContributorDialog($event)"
+                   ng-if="projectpage.isMyProject()">
+            Пригласить участников
+        </md-button>
+    </div>
     <div class="tasks-container">
         <div class="task-item"
              ng-repeat="task in projectpage.tasks track by $index"

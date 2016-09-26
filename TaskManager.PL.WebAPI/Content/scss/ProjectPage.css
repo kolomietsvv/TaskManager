@@ -1,0 +1,59 @@
+﻿.project-page .menu-bar {
+  display: inline-block;
+  width: 250px;
+  height: 100%;
+  vertical-align: top;
+  margin-top: 30px;
+}
+
+.project-page .menu-bar .menu-item {
+  width: calc(100% - 10px);
+  background-color: #bcaaa4;
+}
+
+.project-page .tasks-container {
+  display: inline-block;
+  width: calc(100% - 300px);
+}
+
+.project-page .tasks-container .task-item {
+  background-color: rgba(221, 222, 178, 0.55);
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 6px;
+  overflow: hidden;
+  display: inline-block;
+  margin: 30px;
+  transition: box-shadow 0.2s linear;
+  box-shadow: 0 0 0 transparent;
+  padding: 20px;
+}
+
+.project-page .tasks-container .task-item:hover {
+  box-shadow: 0px 12px 45px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+.project-page .tasks-container .task-item .task-title {
+  font-size: 24px;
+}
+
+.project-page .tasks-container .task-item .task-summary {
+  font-size: 14px;
+}
+
+.project-page .tasks-container .task-item .icon-addtask {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+  overflow: hidden;
+  display: inline-block;
+  margin: 30px;
+  transition: box-shadow 0.2s linear;
+  box-shadow: 0 0 0 transparent;
+  padding: 20px;
+}
+
+/*# sourceMappingURL=ProjectPage.css.map */

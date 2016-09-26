@@ -1,10 +1,20 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-	<meta charset="utf-8" />
-</head>
-<body>
+﻿<div>
+    <md-content md-theme="docs-dark"
+                layout-padding
+                class="login-form">
+        <md-input-container class="md-block md-input-has-value">
+            <label for="login">Название проекта</label>
+            <input ng-required="true"
+                   name="login"
+                   ng-model="login"
+                   class="ng-pristine md-input ng-invalid ng-invalid-required ng-touched"
+                   id="login" />
+        </md-input-container>
 
-</body>
-</html>
+    </md-content>
+
+    <md-button ng-click="answer({LoginName: login})">
+        Добавить
+    </md-button>
+</div>
+

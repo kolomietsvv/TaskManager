@@ -30,7 +30,7 @@ namespace TaskManager.PL.WebAPI.Controllers
         [Authorize(Roles = "Manager, Admin")]
         public ActionResult DeleteRole(string loginName, string roleName)
         {
-            UserModel.DeletRole(loginName, roleName);
+            UserModel.DeleteRole(loginName, roleName);
             return new HttpStatusCodeResult(200, "ok");
         }
     }

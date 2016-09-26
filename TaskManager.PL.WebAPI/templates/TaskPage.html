@@ -1,21 +1,22 @@
 ﻿<div class="task-page">
-    <md-button class="md-primary md-raised" ng-click="taskpage.showAddSubtaskDialog($event)">
-        Добавить подзадачу
-    </md-button>
-
+    <div class="menu-bar">
+        <md-button class="md-primary md-raised" ng-click="taskpage.showAddSubtaskDialog($event)">
+            Добавить подзадачу
+        </md-button>
+    </div>
     <div class="subtasks-container">
         <div class="subtask-item"
              ng-repeat="subtask in taskpage.subtasks track by $index">
-            <div class="task-title">
+            <div class="subtask-title">
                 {{::subtask.Name}}
             </div>
-            <div class="task-title">
+            <div class="subtask-title">
                 {{::subtask.DoneBy}}<!-- ::  <=== it is one time data binding in angularjs-->
             </div>
-            <div class="task-creationTime">
+            <div class="subtask-creationTime">
                 {{::subtask.CreationTime|jsDate| date:'dd:MM:yyyy'}}
             </div>
-            <div class="task-creationTime" ng-if="subtask.CompletionTime">
+            <div class="subtask-creationTime" ng-if="subtask.CompletionTime">
                 {{::subtask.CompletionTime|jsDate| date:'dd:MM:yyyy'}}
             </div>
             <input ng-model="searchpage.firstName"
@@ -30,7 +31,6 @@
                        taskpage.tryToDo()">
                     Выполнено
                 </md-button>
-                
                 <div ng-if="subtask.DoneBy!=null">
                     <md-button class="md-primary md-raised"
                                ng-click="subtask.DoneBy='notnull';
@@ -46,7 +46,7 @@
                         Отклонить выполнение
                     </md-button>
                 </div>
-                
+
             </div>
 
         </div>

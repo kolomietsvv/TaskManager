@@ -1,0 +1,59 @@
+﻿.task-page .menu-bar {
+  display: inline-block;
+  width: 250px;
+  height: 100%;
+  vertical-align: top;
+  margin-top: 30px;
+}
+
+.task-page .menu-bar .menu-item {
+  width: calc(100% - 10px);
+  background-color: #bcaaa4;
+}
+
+.task-page .subtasks-container {
+  display: inline-block;
+  width: calc(100% - 300px);
+}
+
+.task-page .subtasks-container .subtask-item {
+  background-color: rgba(221, 222, 178, 0.55);
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 6px;
+  overflow: hidden;
+  display: inline-block;
+  margin: 30px;
+  transition: box-shadow 0.2s linear;
+  box-shadow: 0 0 0 transparent;
+  padding: 20px;
+}
+
+.task-page .subtasks-container .subtask-item:hover {
+  box-shadow: 0px 12px 45px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+.task-page .subtasks-container .subtask-item .subtask-title {
+  font-size: 24px;
+}
+
+.task-page .subtasks-container .subtask-item .subtask-summary {
+  font-size: 14px;
+}
+
+.task-page .subtasks-container .subtask-item .icon-addsubtask {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+  overflow: hidden;
+  display: inline-block;
+  margin: 30px;
+  transition: box-shadow 0.2s linear;
+  box-shadow: 0 0 0 transparent;
+  padding: 20px;
+}
+
+/*# sourceMappingURL=TaskPage.css.map */

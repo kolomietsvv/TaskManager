@@ -3,4 +3,3 @@ D:\TaskManager\TaskManager.Common.Entities\bin\Debug\TaskManager.Common.Entities
 D:\TaskManager\TaskManager.Common.Entities\bin\Debug\TaskManager.Common.Entities.pdb
 D:\TaskManager\TaskManager.Common.Entities\obj\Debug\TaskManager.Common.Entities.dll
 D:\TaskManager\TaskManager.Common.Entities\obj\Debug\TaskManager.Common.Entities.pdb
-D:\TaskManager\TaskManager.Common.Entities\obj\Debug\TaskManager.Common.Entities.csprojResolveAssemblyReference.cache

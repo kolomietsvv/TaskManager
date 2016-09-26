@@ -14,7 +14,6 @@ namespace TaskManager.DAL.MSSQL
 
         public IEnumerable<ProjectTask> GetAllTasks(Guid projectId)
         {
-            var tasks = new List<ProjectTask>();
             using (var connection = new SqlConnection(_connectionString))
             {
                 var command = new SqlCommand("getAllTasks", connection);
@@ -24,23 +23,19 @@ namespace TaskManager.DAL.MSSQL
                 var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    try
+                    yield return new ProjectTask()
                     {
-                        tasks.Add(new ProjectTask((Guid)reader["taskId"], (string)reader["name"],
-                            (string)reader["summary"], (DateTime)reader["creationTime"], (DateTime)reader["deadline"]));
-                    }
-                    catch (Exception)
-                    {
-                        tasks.Add(new ProjectTask((Guid)reader["taskId"],
-                            (string)reader["name"], (DateTime)reader["creationTime"], (DateTime)reader["deadline"]));
-                    }
-
+                        TaskId = (Guid) reader["taskId"],
+                        Name =reader["name"] as string,
+                        Summary =reader["summary"] as string,
+                        CreationTime=(DateTime)reader["creationTime"],
+                        Deadline=reader["deadline"] as DateTime?
+                    };
                 }
-                return tasks;
             }
         }
 
-        public void AddTask(Guid projectId, string name, string summary, DateTime deadline)
+        public void AddTask(Guid projectId, string name, string summary, DateTime? deadline)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -73,9 +68,9 @@ namespace TaskManager.DAL.MSSQL
                 {
                     return new Project()
                     {
-                        ManagerLogin = (string)reader["loginName"],
-                        Summary = (string)reader["summary"],
-                        Name = (string)reader["name"]
+                        ManagerLogin = reader["loginName"] as string,
+                        Summary = reader["summary"] as string,
+                        Name = reader["name"] as string,
                     };
                 }
                 return null;

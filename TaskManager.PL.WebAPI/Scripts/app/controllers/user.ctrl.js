@@ -10,22 +10,15 @@ App.controller('UserCtrl',
                 return userData.Login === loginName;
             };
 
-
-            function init() {
-                $http.post('User/GetAllProjects/', { loginName: loginName })
-                 .then(function (res) {
-                     vm.projects = res.data.Projects;
-                 }, function (res) {
-                     console.dir(res.data);
-                 });
-            }
-
             vm.showAddProjectDialog = function (ev) {
                 $mdDialog.show({
                     controller: DialogController,
                     templateUrl: 'AddProjectPage.html',
                     parent: angular.element(document.body),
                     targetEvent: ev,
+                    locals: {
+                        userLogin: userData.Login
+                    },
                     clickOutsideToClose: true
                 })
                 .then(function (answer) {
@@ -52,7 +45,17 @@ App.controller('UserCtrl',
                  });
             };
 
-            function DialogController($scope, $mdDialog) {
+            function init() {
+                $http.post('User/GetAllProjects/', { loginName: loginName })
+                 .then(function (res) {
+                     vm.projects = res.data.Projects;
+                 }, function (res) {
+                     console.dir(res.data);
+                 });
+            }
+
+            function DialogController($scope, $mdDialog, locals) {
+                $scope.locals = locals;
                 $scope.hide = function () {
                     $mdDialog.hide();
                 };
@@ -63,4 +66,6 @@ App.controller('UserCtrl',
                     $mdDialog.hide(answer);
                 };
             }
+
+
         }]);

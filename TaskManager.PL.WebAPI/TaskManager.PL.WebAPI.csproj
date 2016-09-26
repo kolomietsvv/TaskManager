@@ -692,6 +692,10 @@
     <Content Include="bower_components\bootstrap-sass\assets\javascripts\bootstrap\tab.js" />
     <Content Include="bower_components\bootstrap-sass\assets\javascripts\bootstrap\tooltip.js" />
     <Content Include="bower_components\bootstrap-sass\assets\javascripts\bootstrap\transition.js" />
+    <Content Include="bower_components\components-font-awesome\.gitignore" />
+    <Content Include="bower_components\components-font-awesome\css\font-awesome.css" />
+    <Content Include="bower_components\components-font-awesome\css\font-awesome.min.css" />
+    <Content Include="bower_components\components-font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="bower_components\jquery\AUTHORS.txt" />
     <Content Include="bower_components\jquery\dist\core.js" />
     <Content Include="bower_components\jquery\dist\jquery.js" />
@@ -945,6 +949,30 @@
     <Content Include="Content\scss\Main.min.css">
       <DependentUpon>Main.css</DependentUpon>
     </Content>
+    <Content Include="Content\scss\ProjectPage.css">
+      <DependentUpon>ProjectPage.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\scss\ProjectPage.min.css">
+      <DependentUpon>ProjectPage.css</DependentUpon>
+    </Content>
+    <Content Include="Content\scss\reset.css">
+      <DependentUpon>reset.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\scss\reset.min.css">
+      <DependentUpon>reset.css</DependentUpon>
+    </Content>
+    <Content Include="Content\scss\TaskPage.css">
+      <DependentUpon>TaskPage.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\scss\TaskPage.min.css">
+      <DependentUpon>TaskPage.css</DependentUpon>
+    </Content>
+    <Content Include="Content\scss\UserPage.css">
+      <DependentUpon>UserPage.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\scss\UserPage.min.css">
+      <DependentUpon>UserPage.css</DependentUpon>
+    </Content>
     <Content Include="Content\scss\variables\variables.css">
       <DependentUpon>variables.scss</DependentUpon>
     </Content>
@@ -1041,6 +1069,8 @@
     <Content Include="Scripts\app\values\userData.value.js" />
     <Content Include="Scripts\templates.js" />
     <Content Include="Styles\css\allStyles.css" />
+    <Content Include="Styles\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="Styles\fonts\fontawesome-webfont.svg" />
     <Content Include="templates\AddContributorsDialog.html" />
     <Content Include="templates\AddProjectPage.html" />
     <Content Include="templates\AddSubtaskPage.html" />
@@ -1053,6 +1083,7 @@
     <Content Include="templates\RegistrationPage.html" />
     <Content Include="templates\SearchPage.html" />
     <Content Include="templates\TaskPage.html" />
+    <Content Include="templates\UserMenuPage.html" />
     <Content Include="templates\UserPage.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -1363,6 +1394,100 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bower.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\scss\TaskPage.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\scss\UserPage.css.map">
+      <DependentUpon>UserPage.css</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\fonts\bootstrap\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\fonts\bootstrap\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\scss\reset.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\scss\reset.css.map">
+      <DependentUpon>reset.css</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bower_components\components-font-awesome\.bower.json" />
+    <Content Include="bower_components\components-font-awesome\.npmignore" />
+    <Content Include="bower_components\components-font-awesome\bower.json" />
+    <Content Include="bower_components\components-font-awesome\css\font-awesome.css.map" />
+    <Content Include="bower_components\components-font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="bower_components\components-font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="bower_components\components-font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="bower_components\components-font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="bower_components\components-font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="bower_components\components-font-awesome\less\animated.less" />
+    <Content Include="bower_components\components-font-awesome\less\bordered-pulled.less" />
+    <Content Include="bower_components\components-font-awesome\less\core.less" />
+    <Content Include="bower_components\components-font-awesome\less\fixed-width.less" />
+    <Content Include="bower_components\components-font-awesome\less\font-awesome.less" />
+    <Content Include="bower_components\components-font-awesome\less\icons.less" />
+    <Content Include="bower_components\components-font-awesome\less\larger.less" />
+    <Content Include="bower_components\components-font-awesome\less\list.less" />
+    <Content Include="bower_components\components-font-awesome\less\mixins.less" />
+    <Content Include="bower_components\components-font-awesome\less\path.less" />
+    <Content Include="bower_components\components-font-awesome\less\rotated-flipped.less" />
+    <Content Include="bower_components\components-font-awesome\less\screen-reader.less" />
+    <Content Include="bower_components\components-font-awesome\less\stacked.less" />
+    <Content Include="bower_components\components-font-awesome\less\variables.less" />
+    <Content Include="bower_components\components-font-awesome\package.json" />
+    <Content Include="bower_components\components-font-awesome\README.md" />
+    <Content Include="bower_components\components-font-awesome\scss\font-awesome.scss" />
+    <Content Include="bower_components\components-font-awesome\scss\_animated.scss" />
+    <Content Include="bower_components\components-font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="bower_components\components-font-awesome\scss\_core.scss" />
+    <Content Include="bower_components\components-font-awesome\scss\_fixed-width.scss" />
+    <Content Include="bower_components\components-font-awesome\scss\_icons.scss" />
+    <Content Include="bower_components\components-font-awesome\scss\_larger.scss" />
+    <Content Include="bower_components\components-font-awesome\scss\_list.scss" />
+    <Content Include="bower_components\components-font-awesome\scss\_mixins.scss" />
+    <Content Include="bower_components\components-font-awesome\scss\_path.scss" />
+    <Content Include="bower_components\components-font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="bower_components\components-font-awesome\scss\_screen-reader.scss" />
+    <Content Include="bower_components\components-font-awesome\scss\_stacked.scss" />
+    <Content Include="bower_components\components-font-awesome\scss\_variables.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\fonts\fontawesome-webfont.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\fonts\fontawesome-webfont.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\fonts\fontawesome-webfont.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\fonts\fontawesome-webfont.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\fonts\FontAwesome.otf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\scss\TaskPage.css.map">
+      <DependentUpon>TaskPage.css</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\scss\ProjectPage.css.map">
+      <DependentUpon>ProjectPage.css</DependentUpon>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

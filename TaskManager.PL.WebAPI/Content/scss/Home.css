@@ -1,14 +1,22 @@
 ﻿.home-page {
+  height: 1000px;
   padding-bottom: 25em;
   position: relative;
-  max-width: 1440px;
-  height: 100%;
   margin: 0 auto;
   font: 14px/1 Helvetica,Arial,sans-serif;
   color: #b5899b;
   background-image: url("../../Images/background.png");
   background-repeat: no-repeat;
   background-size: 100%;
+}
+
+.home-page .modal-footer {
+  margin-right: 25px;
+}
+
+.home-page .top-container {
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 .home-page .top-container .left-side {
@@ -47,6 +55,7 @@
 
 .home-page .slogan {
   background-color: #95a5a6;
+  font-size: 18px;
   color: #ffffff;
   line-height: 24px;
   overflow: hidden;

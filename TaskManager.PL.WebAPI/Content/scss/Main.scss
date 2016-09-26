@@ -1,5 +1,22 @@
 ﻿@import "../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 @import "./variables/variables.scss";
-.main-container{
-    min-width: 710px;
+@import "./reset.scss";
+@import "../../bower_components/components-font-awesome/scss/font-awesome.scss";
+
+.w100 {
+    width: 100%;
+}
+.p0{
+    padding: 0 !important;
+}
+body {
+    width: 100%;
+    min-height: 100%;
+
+    .main-container {
+        background-color: rgba(200, 209, 161, 0.4);
+        width: 100%;
+        min-width: 710px;
+        min-height: 100%;
+    }
 }

@@ -1,0 +1,59 @@
+﻿.task-page {
+    .menu-bar {
+        display: inline-block;
+        width: 250px;
+        height: 100%;
+        vertical-align: top;
+        margin-top: 30px;
+
+        .menu-item {
+            width: calc(100% - 10px);
+            background-color: rgb(188, 170, 164)
+        }
+    }
+
+        .subtasks-container {
+            display: inline-block;
+            width: calc(100% - 300px);
+
+            .subtask-item {
+                background-color: rgba(221, 222, 178, 0.55);
+                position: relative;
+                width: 300px;
+                height: 300px;
+                border-radius: 6px;
+                overflow: hidden;
+                display: inline-block;
+                margin: 30px;
+                transition: box-shadow 0.2s linear;
+                box-shadow: 0 0 0 rgba(0,0,0,0);
+                padding: 20px;
+
+                &:hover {
+                    box-shadow: 0px 12px 45px rgba(0,0,0,0.7);
+                    cursor: pointer;
+                }
+
+                .subtask-title {
+                    font-size: 24px;
+                }
+
+                .subtask-summary {
+                    font-size: 14px;
+                }
+
+                .icon-addsubtask {
+                    position: relative;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 6px;
+                    overflow: hidden;
+                    display: inline-block;
+                    margin: 30px;
+                    transition: box-shadow 0.2s linear;
+                    box-shadow: 0 0 0 rgba(0,0,0,0);
+                    padding: 20px;
+                }
+            }
+        }
+    }

@@ -14,15 +14,11 @@
                     <p class="site-title">
                     </p>
                 </div>
-
-                <div class="float-right">
-                </div>
-
             </div>
         </header>
 
         @RenderBody()
-        <div ui-view class="container"></div>
+        <div ui-view class="container w100 p0"></div>
         @Scripts.Render("~/bundles/libraries")
         @Scripts.Render("~/bundles/mainScripts")
         @RenderSection("scripts", required: false)

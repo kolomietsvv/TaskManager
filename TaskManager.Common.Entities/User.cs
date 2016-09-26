@@ -8,56 +8,6 @@ namespace TaskManager.Common.Entities
 {
     public class User
     {
-        public User()
-        {
-
-        }
-        public User(string loginName, string passwordHash, string email, List<string> roles)
-        {
-            LoginName = loginName;
-            PasswordHash = passwordHash;
-            Email = email;
-            Roles = roles;
-        }
-        public User(Guid userId, string loginName, string passwordHash, string email)
-        {
-            UserId = userId;
-            LoginName = loginName;
-            PasswordHash = passwordHash;
-            Email = email;
-        }
-
-        public User(
-            Guid userId, string loginName, string passwordHash,
-            string email, string firstName, string lastName, DateTime dateOfBirth,
-            string companyName, string qualification, string extraInf, List<string> roles)
-        {
-            UserId = userId;
-            LoginName = loginName;
-            PasswordHash = passwordHash;
-            FirstName = firstName;
-            LastName = lastName;
-            CompanyName = companyName;
-            Qualification = qualification;
-            DateOfBirth = dateOfBirth;
-            Email = email;
-            Roles = roles;
-        }
-        public User(
-            Guid userId, string loginName, string passwordHash,
-            string email, string firstName, string lastName, DateTime dateOfBirth,
-            string companyName, string qualification, string extraInf)
-        {
-            UserId = userId;
-            LoginName = loginName;
-            PasswordHash = passwordHash;
-            FirstName = firstName;
-            LastName = lastName;
-            CompanyName = companyName;
-            Qualification = qualification;
-            DateOfBirth = dateOfBirth;
-            Email = email;
-        }
         public Guid UserId { get; set; }
         public string LoginName { get; set; }
         public string PasswordHash { get; set; }
@@ -65,7 +15,7 @@ namespace TaskManager.Common.Entities
         public List<string> Roles { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
         public string CompanyName { get; set; }
         public string Qualification { get; set; }
         public List<Project> Projects { get; set; }
@@ -74,11 +24,11 @@ namespace TaskManager.Common.Entities
         {
             get
             {
-                if (DateOfBirth != new DateTime())
+                if (DateOfBirth != null)
                 {
                     DateTime now = DateTime.Today;
-                    int age = now.Year - DateOfBirth.Year;
-                    if (now < DateOfBirth.AddYears(age))
+                    int age = now.Year - DateOfBirth.Value.Year;
+                    if (now < DateOfBirth.Value.AddYears(age))
                         age--;
                     return age;
                 }

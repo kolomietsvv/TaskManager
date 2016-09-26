@@ -2,10 +2,9 @@
 @import "./variables/variables.scss";
 
 .home-page {
+    height: 1000px;
     padding-bottom: 25em;
     position: relative;
-    max-width: 1440px;
-    height: 100%;
     margin: 0 auto;
     font: 14px/1 Helvetica,Arial,sans-serif;
     color: #b5899b;
@@ -13,7 +12,13 @@
     background-repeat: no-repeat;
     background-size: 100%;
 
+    .modal-footer {
+        margin-right: 25px;
+    }
+
     .top-container {
+        margin-left: 40px;
+        margin-right: 40px;
 
         .left-side {
             color: #ffffff;
@@ -52,6 +57,7 @@
 
     .slogan {
         background-color: $color-h-grey1;
+        font-size: 18px;
         color: #ffffff;
         line-height: 24px;
         overflow: hidden;

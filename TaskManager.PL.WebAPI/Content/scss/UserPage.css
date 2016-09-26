@@ -1,0 +1,59 @@
+﻿.user-page .menu-bar {
+  display: inline-block;
+  width: 250px;
+  height: 100%;
+  vertical-align: top;
+  margin-top: 30px;
+}
+
+.user-page .menu-bar .menu-item {
+  width: calc(100% - 10px);
+  background-color: #bcaaa4;
+}
+
+.user-page .projects-container {
+  display: inline-block;
+  width: calc(100% - 300px);
+}
+
+.user-page .projects-container .project-item {
+  background-color: rgba(221, 222, 178, 0.55);
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 6px;
+  overflow: hidden;
+  display: inline-block;
+  margin: 30px;
+  transition: box-shadow 0.2s linear;
+  box-shadow: 0 0 0 transparent;
+  padding: 20px;
+}
+
+.user-page .projects-container .project-item:hover {
+  box-shadow: 0px 12px 45px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+.user-page .projects-container .project-item .project-title {
+  font-size: 24px;
+}
+
+.user-page .projects-container .project-item .project-summary {
+  font-size: 14px;
+}
+
+.user-page .projects-container .project-item .icon-addproject {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+  overflow: hidden;
+  display: inline-block;
+  margin: 30px;
+  transition: box-shadow 0.2s linear;
+  box-shadow: 0 0 0 transparent;
+  padding: 20px;
+}
+
+/*# sourceMappingURL=UserPage.css.map */

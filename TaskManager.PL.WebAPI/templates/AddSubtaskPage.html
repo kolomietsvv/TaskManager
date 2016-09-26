@@ -13,7 +13,7 @@
                        id="taskName" />
             </md-input-container>
 
-        <md-button ng-click="answer({TaskId: locals.taskId, Name: subtaskName, CreationTime: locals.currentDate})">
+        <md-button ng-click="addProjectForm.$valid && answer({TaskId: locals.taskId, Name: subtaskName, CreationTime: locals.currentDate})">
             Добавить
         </md-button>
     </form>

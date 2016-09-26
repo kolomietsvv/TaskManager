@@ -12,7 +12,7 @@ namespace TaskManager.PL.WebAPI.Models
         public string Email { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
         public string CompanyName { get; set; }
         public string Qualification { get; set; }
         public string ExtraInf { get; set; }
@@ -20,11 +20,11 @@ namespace TaskManager.PL.WebAPI.Models
         {
             get
             {
-                if (DateOfBirth != new DateTime())
+                if (DateOfBirth!=null)
                 {
                     DateTime now = DateTime.Today;
-                    int age = now.Year - DateOfBirth.Year;
-                    if (now < DateOfBirth.AddYears(age))
+                    int age = now.Year - DateOfBirth.Value.Year;
+                    if (now < DateOfBirth.Value.AddYears(age))
                         age--;
                     return age;
                 }
@@ -38,7 +38,7 @@ namespace TaskManager.PL.WebAPI.Models
             ContainerLogic.userLogic.AddRole(loginName, roleName);
         }
 
-        public static void DeletRole(string loginName, string roleName)
+        public static void DeleteRole(string loginName, string roleName)
         {
             ContainerLogic.userLogic.DeleteRole(loginName, roleName);
         }

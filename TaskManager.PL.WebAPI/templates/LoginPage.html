@@ -1,7 +1,6 @@
 ﻿<form novalidate name="loginForm" ng-submit="loginForm.$valid && loginpage.loginGo()">
     <div class="form-group">
-        <md-content md-theme="docs-dark"
-                    layout-padding
+        <md-content layout-padding
                     class="login-form">
             <md-input-container class="md-block md-input-has-value">
                 <label for="login">Логин</label>
@@ -13,7 +12,6 @@
             </md-input-container>
             <md-input-container class="md-block md-input-has-value">
                 <label for="password">Пароль</label>
-
                 <input id="password"
                        ng-model="loginpage.password"
                        type="password"

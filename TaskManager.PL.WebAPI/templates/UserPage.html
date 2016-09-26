@@ -1,19 +1,23 @@
 ﻿<div class="user-page">
-    <button class="btn btn-default" ng-click="userpage.logoutGo()">Выйти</button>
 
-    <md-button class="md-primary md-raised" 
-               ng-click="userpage.showAddProjectDialog($event)"
-               ng-if="userpage.isMyPage()">
-        Создать проект
-    </md-button>
-
-    <md-button class="md-primary md-raised" ui-sref="searchpage">
-        Поиск
-    </md-button>
-
-    <md-button class="md-primary md-raised" ui-sref="adminpage">
-        Настройки полей пользователей
-    </md-button>
+    <div class="menu-bar">
+        <md-button class="md-primary md-raised menu-item"
+                   ng-click="userpage.showAddProjectDialog($event)"
+                   ng-if="userpage.isMyPage()">
+            Создать проект 
+            <i class="glyphicon glyphicon-camera"></i>
+        </md-button>
+        
+        <md-button class="md-primary md-raised menu-item" ui-sref="searchpage">
+            Поиск
+        </md-button>
+        <md-button class="md-primary md-raised menu-item" ui-sref="adminpage">
+            Роли
+        </md-button>
+        <md-button class="md-primary md-raised menu-item" ng-click="userpage.logoutGo()">
+            Выйти
+        </md-button>
+    </div>
 
     <div class="projects-container">
         <div class="project-item"

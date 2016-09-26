@@ -16,7 +16,7 @@ namespace TaskManager.BLL.Core
         {
             return projectDAO.GetAllTasks(projectId);
         }
-        public void AddTask(Guid projectId, string name, string summary, DateTime deadline)
+        public void AddTask(Guid projectId, string name, string summary, DateTime? deadline)
         {
             projectDAO.AddTask(projectId, name, summary, deadline);
         }

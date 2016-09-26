@@ -1,28 +1,29 @@
-﻿<div class="form-group">
-    <md-content md-theme="docs-dark"
-                layout-padding
-                class="login-form">
-        <md-input-container class="md-block md-input-has-value">
+﻿<div class="form-group user-page">
+    <form name="addProjectForm" flex-gt-xs>
+        <md-content layout-padding
+                    class="login-form">
+            <md-input-container class="md-block md-input-has-value">
 
-            <label for="projectName">Название проекта</label>
-            <input ng-required="true"
-                   name="projectName"
-                   ng-model="projectName"
-                   class="ng-pristine md-input ng-invalid ng-invalid-required ng-touched"
-                   id="projectName" />
+                <label for="projectName">Название проекта</label>
+                <input ng-required="true"
+                       name="projectName"
+                       ng-model="projectName"
+                       class="ng-pristine md-input ng-invalid ng-invalid-required ng-touched"
+                       id="projectName" />
 
-        </md-input-container>
-        <md-input-container class="md-block md-input-has-value">
-            <label for="summary">Краткое описание проекта</label>
-
-            <input name="summary"
-                   id="summary"
-                   ng-model="projectSummary"
-                   type="text" />
-        </md-input-container>
-    </md-content>
-
-    <md-button ng-click="answer({ProjectName: projectName, Summary: projectSummary })">
-        Добавить
+            </md-input-container>
+            <md-input-container class="md-block md-input-has-value">
+                <label for="summary">Описание проекта</label>
+                <input name="summary"
+                       id="summary"
+                       ng-model="projectSummary"
+                       type="text" />
+            </md-input-container>
+        </md-content>
+    </form>
+    <md-button ng-click="addProjectForm.$valid && answer({ManagerLogin: locals.userLogin, ProjectName: projectName, Summary: projectSummary })">
+        Создать
     </md-button>
+
+
 </div>

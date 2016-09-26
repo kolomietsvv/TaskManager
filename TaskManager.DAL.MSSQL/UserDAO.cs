@@ -39,11 +39,9 @@ namespace TaskManager.DAL.MSSQL
                 var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    yield return new User(
-                        (Guid)reader["userId"], (string)reader["loginame"], (string)reader["passwordHash"],
-                        (string)reader["email"], (string)reader["firstName"], (string)reader["lastName"],
-                        (DateTime)reader["DateOfBirth"], (string)reader["companyName"], (string)reader["qualification"],
-                        (string)reader["extraInf"]);
+                    yield return new User() {
+
+                    };
                 }
             }
         }
@@ -68,8 +66,8 @@ namespace TaskManager.DAL.MSSQL
                     user.FirstName = reader["firstName"] as string;
                     user.LastName = reader["lastName"] as string;
 
-                    try { user.DateOfBirth = (DateTime)reader["dateOfBirth"]; }
-                    catch {; }
+                    user.DateOfBirth = reader["dateOfBirth"] as DateTime?;
+                   
 
                     user.CompanyName = reader["companyName"] as string;
                     user.Qualification = reader["qualification"] as string;
@@ -129,13 +127,13 @@ namespace TaskManager.DAL.MSSQL
             }
         }
 
-        public void AddRole(string userId, string roleName)
+        public void AddRole(string token, string roleName)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                var command = new SqlCommand("createRole", connection);
+                var command = new SqlCommand("addRole", connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("@userLogin", System.Data.SqlDbType.VarChar).Value = userId;
+                command.Parameters.Add("@token", System.Data.SqlDbType.VarChar).Value = token;
                 command.Parameters.Add("@roleName", System.Data.SqlDbType.VarChar).Value = roleName;
                 connection.Open();
                 command.ExecuteNonQuery();
